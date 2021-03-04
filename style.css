@@ -1,0 +1,311 @@
+@font-face {
+    font-family: lotaGrotesqueLight;
+    src: url('Lota-Grotesque-Alt-3-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: lotaGrotesqueBold;
+    src: url('Lota-Grotesque-Alt-3-Semi-Bold.woff') format('woff');
+}
+
+/* Main styles */
+
+*{
+    font-family: 'lotaGrotesqueLight';
+    box-sizing: border-box;
+}
+
+html,
+body{
+    width: 100%;
+    height:100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+h6, h1, p, li, ul{
+    padding: 0;
+    margin: 0;
+}
+
+p{
+    font-size: 20px;
+    /* padding-bottom: 25px; */
+}
+
+a{
+    color: rgb(0, 2, 255);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+li{
+    list-style: none;
+    font-size: 14px;
+}
+
+span{
+    font-size: 20px;
+    color: rgb(0, 2, 255);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+sup{
+    font-size: 12px;
+    color: rgb(0, 2, 255);
+}
+
+
+/* Utility */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+/* Header */
+
+header{
+    margin: 15px 0 0 30px;
+}
+
+/* Archives */
+
+#archives{
+    margin-right: 30px;
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    text-decoration: none;
+}
+
+#container-list{
+    margin-right: 30px;
+    display: none;
+    text-align: right;
+}
+
+.projects-hover{
+    color: #000000;
+    display: block;
+    text-decoration: none;
+}
+
+.projects-hover:hover {
+    color: rgb(0, 2, 255);
+}
+
+.videos-hover{
+    color: #000000;
+    display: block;
+    text-decoration: none;
+}
+
+.videos-hover:hover{
+    color: rgb(0, 2, 255);
+}
+
+
+#logo-name{
+    color: black;
+    text-decoration: none;
+}
+
+/* About Plagktos */
+
+#test{
+    color: black;
+    text-decoration: none;
+}
+section{
+    position: fixed;
+    left: 30px;
+    top: 150px;
+    width: 20%;
+}
+
+.about-plagktos{
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    text-align: left;
+}
+
+/* Projects Content */
+
+.main-container {
+    display: none;
+    width: 1000px;
+    height: auto;
+    cursor: grabbing;
+    position: absolute;
+}
+
+.title-project{
+    text-decoration: underline;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom:10px;
+}
+
+.main-container img {
+    width: 700px;
+}
+
+.main-container img:hover{
+    border-style: solid;
+    border-width: 5px;
+    border-color: #0002FF;
+}
+
+.project-content{
+    margin-left: 25px;
+    text-align: justify;
+}
+
+.project-content p{
+    font-size: 14px;
+}
+
+.copyrightphoto{
+    margin-top: 20px;
+}
+
+/* Work places */
+.place{
+    display: none;
+    position: absolute;
+}
+
+.place img{
+    width: 10px;
+    display: block;
+}
+
+.place a{
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+/* Floatting Screen */
+
+#ecran-flottant{
+    position: fixed;
+    margin: 80px auto 0 auto;
+    left: 0;
+    right: 0;
+    top: 5px;
+}
+
+/* Videos */
+
+video{
+    width: 700px;
+}
+
+video:hover{
+    border-style: solid;
+    border-width: 5px;
+    border-color: #0002FF;
+}
+
+.copyright-video{
+    font-size: 12px;
+}
+
+/* Contact */
+#contact-container{
+    padding-bottom: 20px;
+}
+
+.link-contact{
+    display: inline-block;
+    visibility: hidden;
+    font-size: 16px;
+    position: absolute;
+    margin-top: -20px;
+    left: 146px;
+}
+
+.link-contact a{
+    background-color: #ffffff;
+    padding: 2px;
+}
+
+#contact-container:hover a{
+    visibility: visible;
+}
+
+#ou-sur{
+    text-decoration: none;
+    color: #000000;
+}
+
+/* Copyright Container */
+
+#copyright{
+    text-decoration: none;
+}
+
+
+#copyright-text{
+    visibility: hidden;
+    width: 300px;
+    margin-top: -30px;
+    left: 0px;
+    color: black;
+    font-size: 14px;
+    text-align: left;
+    position: absolute;
+    z-index: 1;
+    text-decoration: none;
+}
+
+.copy-container:hover #copyright-text{
+    visibility: visible;
+    background-color: #ffffff;
+}
+
+
+/* Footer */
+
+.language{
+    margin-left: 30px;
+    position: absolute;
+    bottom: 20px;
+    left: 5px;
+}
+
+.language a{
+    color: #000000;
+    text-decoration: none;
+}
+
+#french{
+    text-decoration: underline;
+}
+
+#english{
+    text-decoration: underline;
+}
+
+.ld-container{
+    margin-right: 30px;
+    display: inline-block;
+    position: absolute;
+    bottom: 20px;
+    right: 5px;
+}
+
+#sun{
+    width: 25px;
+    cursor: pointer;
+}
+
+#moon{
+    width: 16px;
+    cursor: pointer;
+}
