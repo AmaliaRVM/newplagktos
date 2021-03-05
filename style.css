@@ -142,18 +142,21 @@ section{
 
 #first-word{
     font-size: 0;
+    text-decoration: none;
 }
 #first-word span{
     font-size: 18px;
 }
 #second-word{
     font-size: 0;
+    text-decoration: none;
 }
 #second-word span{
     font-size: 18px;
 }
 #third-word{
     font-size: 0;
+    text-decoration: none;
 }
 #third-word span{
     font-size: 18px;
@@ -162,6 +165,7 @@ section{
 /* Random places containers */
 
 #ici-container-one{
+    text-decoration: none;
     font-size: 0;
 }
 #ici-container-one span{
@@ -170,6 +174,7 @@ section{
 
 #ici-container-two{
     font-size: 0;
+    text-decoration: none;
 }
 #ici-container-two span{
     font-size: 18px;
@@ -179,12 +184,14 @@ section{
 
 #vproject-one {
     font-size: 0;
+    text-decoration: none;
 }
 #vproject-one span {
     font-size: 18px;
 }
 #vproject-two {
     font-size: 0;
+    text-decoration: none;
 }
 #vproject-two span {
     font-size: 18px;
