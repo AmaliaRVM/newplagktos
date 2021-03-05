@@ -1,7 +1,15 @@
 //Global variables 
 
+    //Logo variable
+const logoName = document.getElementById('logo-name');
+
     //Project variables
 const projects = document.getElementById("projects");
+
+const firstWord = document.getElementById("first-word");
+const secondWord = document.getElementById("second-word");
+const thirdWord = document.getElementById("third-word");
+
 
 const firstProject = document.getElementById('first-project');
 const secondProject= document.getElementById('second-project');
@@ -9,7 +17,8 @@ const thirdProject = document.getElementById('third-project');
 const fourthProject = document.getElementById('fourth-project'); 
 
     //Project video variables
-const vprojects = document.getElementById('vprojects')
+const vprojectOne = document.getElementById('vproject-one')
+const vprojectTwo = document.getElementById('vproject-two')
 
 const firstVideoProject = document.getElementById('first-vproject');
 const secondVideoProject= document.getElementById('second-vproject');
@@ -24,8 +33,10 @@ const archiveListProjects = document.getElementById("archive-list-projects");
 const archiveListVideoProjects = document.getElementById("archive-list-vprojects")
 
     //Work places container variables
-const placeIci = document.getElementById('place-ici');
-const placeLa = document.getElementById('place-la');
+const iciContainerOne = document.getElementById('ici-container-one');
+const iciContainerTwo = document.getElementById('ici-container-two');
+
+const containerLa = document.getElementById('container-la');
 
 const placeOne = document.getElementById('place-container-one');
 const placeTwo = document.getElementById('place-container-two');
@@ -53,8 +64,6 @@ const randomCeci = document.getElementById('random-ceci');
     //Contact container variable
 /* const follow = document.getElementById('follow');
 const contactContainer = document.getElementById('contact-container'); */
-
-
 
 
 //All Data 
@@ -110,7 +119,7 @@ let theProjects = [
         "content": firstProject,
     },
     {
-        "name": "city peripherie",
+        "name": "peripheral cities",
         "content": secondProject,
     },
     {
@@ -175,7 +184,7 @@ const ceciVideos = [
 
 ]
 
-const thePlaces = [
+let thePlaces = [
     {
         "name": "Ear you are Festival",
         "content": placeOne,
@@ -202,7 +211,13 @@ const thePlaces = [
     }
 ]
 
+//Logo Name
 
+logoName.addEventListener('click', function(){
+    
+    location.reload(); 
+
+})
 
 //Random project words - HTML Template and Loop
 
@@ -217,9 +232,19 @@ theProjects = newNames.slice().concat(theProjects)
 
     //HTML Template for random words projects
 
-projects.innerHTML = `
-<span id='${newNames[0].name+"1"}'>${newNames[0].name},</span>
-<span id='${newNames[1].name+"1"}'>${newNames[1].name},</span>
+/*     projects.innerHTML = `
+    <p id='${newNames[0].name+"1"}'>${newNames[0].name},</p>
+    <p id='${newNames[1].name+"1"}'>${newNames[1].name},</p>
+    <p id='${newNames[2].name+"1"}'>${newNames[2].name}.</p>
+    `  */
+
+firstWord.innerHTML = `
+<span id='${newNames[0].name+"1"}'>${newNames[0].name}</span>
+` 
+secondWord.innerHTML = `
+<span id='${newNames[1].name+"1"}'>${newNames[1].name}</span>   
+`
+thirdWord.innerHTML = `
 <span id='${newNames[2].name+"1"}'>${newNames[2].name}</span>
 ` 
 
@@ -248,12 +273,11 @@ archiveListVideoProjects.innerHTML = `
 // Display archive projects words
 
 archives.addEventListener('click', function(){
-    
-    if (containerList.style.display === "block") {
-        containerList.style.display = "none";
-    } else {
-        containerList.style.display = "block";
-    }
+
+    remove()
+
+    containerList.style.display = "block";
+ 
 })
 
 
@@ -269,10 +293,12 @@ theVideoProjects = newVideoProjects.slice().concat(theVideoProjects)
 
     //HTML Template
 
-vprojects.innerHTML = `
-    <span id='${newVideoProjects[0].name+"1"}'>${newVideoProjects[0].name},</span>
-    <span id='${newVideoProjects[1].name+"1"}'>${newVideoProjects[1].name}</span>
+vprojectOne.innerHTML = `
+    <span id='${newVideoProjects[0].name+"1"}'>${newVideoProjects[0].name}</span>
 ` 
+vprojectTwo.innerHTML = `
+    <span id='${newVideoProjects[1].name+"1"}'>${newVideoProjects[1].name}</span>
+`
 
 
 //Random ici, ici Loop and HTML Template words
@@ -283,9 +309,13 @@ for( i = 6; i > 4; i--) {
     newPlaces.push(thePlaces.splice(rn,1)[0])
 }
 
+thePlaces = newPlaces.slice().concat(thePlaces)
+
     //HTML Template for random places words 
-placeIci.innerHTML = `
-    <span id='${newPlaces[0].name}'>here,</span>
+iciContainerOne.innerHTML = `
+    <span id='${newPlaces[0].name}'>here</span>
+`
+iciContainerTwo.innerHTML = `
     <span id='${newPlaces[1].name}'>here</span>
 `
 
@@ -293,18 +323,29 @@ placeIci.innerHTML = `
 
 function positionRandom () {
     
-    const positionNumbers = [400, 200, 50, 40]
+   /*  const positionNumbers = [1, 2, 2, 1]
     let position = []
-    for( i = 4; i > 1; i--) {
+    for( i = 4; i > 0; i--) {
         randomNumber = Math.floor(Math.random() * i);
         position.push(positionNumbers.splice(randomNumber,1)[0])
-    }
+    } 
     
-    x = position[0]
-    y = position[1]
-    z = position[2]
-
+    x = position[0] 
+    y = position[1] 
+    z = position[2] 
+    */
+    
+    const heightFrame = window.innerHeight - 653;
+    const widthFrame = window.innerWidth - 1145;
+    console.log(widthFrame)
+    t = Math.round(Math.random() * heightFrame) + 60 + "px";
+    b = Math.round(Math.random() * heightFrame) + "px";
+    x = Math.round(Math.random() * widthFrame) + 120 + "px"
+    y = Math.round(Math.random() * widthFrame) + "px";
+    
+    console.log(t, b, x, y)
 }
+
 
 //Cleaning screen function
 
@@ -331,6 +372,9 @@ function remove () {
     theVideoProjects.forEach(name => {
         name.content.style.display = "none"
     })
+
+
+    containerList.style.display = "none"
 
 }
 
@@ -360,10 +404,11 @@ function mappingProjects(element, myint){
         // random position numbers for the project container position
         
         positionRandom()
-        console.log("hello", x,y,z)
-        element.content.style.left = x + "px";
-        element.content.style.right = y + "px"
-        element.content.style.top = z + "px"
+        
+        element.content.style.top = t;
+        element.content.style.right = y;
+        element.content.style.bottom = b;
+        element.content.style.left = x;
 
     }) 
 
@@ -378,7 +423,7 @@ newNames.map(function(x2) {return mappingProjects(x2, "1") })
 // For theVideoProjects List
 
 function mappingVideoProjects(element, myint){
-    console.log(myint)
+    
     const divProject = document.getElementById(element.name+myint);
     divProject.addEventListener('click', function(){
 
@@ -389,10 +434,12 @@ function mappingVideoProjects(element, myint){
         // random position numbers for the project container position
         
         positionRandom()
-        console.log("hello", x,y,z)
-        element.content.style.left = x + "px";
-        element.content.style.right = y + "px"
-        element.content.style.top = z + "px"
+        console.log("hello", x,y,t,b)
+
+        element.content.style.top = t;
+        element.content.style.right = y;
+        element.content.style.bottom = b;
+        element.content.style.left = x;
 
     }) 
 
@@ -411,18 +458,24 @@ newPlaces.map(function(element){
     const divPlaces = document.getElementById(element.name);
     
     divPlaces.addEventListener('click', function(){
+
+        thePlaces.forEach(element => {
+            element.content.style.display = "none"
+        }) 
         
         element.content.style.display = "block";
 
         removeMedia()
 
+        
+        
     })
 
 })
 
 // Display La
 
-placeLa.addEventListener('click', function(){
+containerLa.addEventListener('click', function(){
 
     thePlaces.forEach(element => {
         element.content.style.display = "block"
@@ -447,9 +500,11 @@ randomCeci.addEventListener('click', function(){
     // random position numbers for the project container position
 
     positionRandom()
-    element.content.style.left = x + "px";
-    element.content.style.right = y + "px"
-    element.content.style.top = z + "px"
+    
+    element.content.style.top = t;
+    element.content.style.right = y;
+    element.content.style.bottom = b;
+    element.content.style.left = x;
     
 })
 
@@ -461,20 +516,6 @@ screenContainer.addEventListener('click', function(){
     ecranFlottant.style.display = "block";
     
 })
-
-// Display contact
-/* follow.addEventListener('click', function(){
-
-    if (contactContainer.style.display === "block") {
-        contactContainer.style.display = "none";
-    } else {
-        contactContainer.style.display = "block";
-    }
-    
-}) */
-
-// Remove videos
-
 
 
 //Make all -div class main-container- a draggable element
@@ -559,6 +600,7 @@ const allSpan = document.getElementsByTagName('span');
 const allLinks = document.getElementsByTagName('a');
 const moon = document.getElementById('moon');
 const sun = document.getElementById('sun');
+const copyrightText = document.getElementById('copyright-text');
 
     // To dark mode
 moon.addEventListener('click', function(){
@@ -574,17 +616,37 @@ moon.addEventListener('click', function(){
 
     Array.from(allLinks).forEach(function(item){
         item.style.color = "#ffffff";
+        item.style.backgroundImage = "url('./assets/brand/bleu_2.jpg')";
     })
+
+    copyrightText.style.backgroundImage = "url('./assets/brand/bleu_2.jpg')";
+    mailContact.style.backgroundImage = "url('./assets/brand/bleu_2.jpg')";
 
 })
 
 
+// Mail contact
+mailContainer = document.getElementById('mail-container')
+mailContact = document.getElementById('mail-contact');
 
+mailContainer.addEventListener('click', function(){
+    mailContact.style.display = 'block';
+})
 
+mailContact.addEventListener('click', function(){
+    mailContact.style.display = 'none';
+})
+
+// Smaller scren message
+
+if (window.screen.width < 1000) {
+    console.log('small screen')
+    alert('This website is not smartphone or tablet friendly');
+}
 
 //
 //
-//HTML English Templates for projects  
+//HTML French Templates for projects  
 
 firstProject.innerHTML = `
 
@@ -598,10 +660,10 @@ firstProject.innerHTML = `
             une séance de navigation
         </h6>
         <p>
-            An invitation to cross the Atlantic, to stop and look at the morning fog, to immerse
-            yourself underwater and in the images it projects. Voiles et films en pellicule: a
-            navigation session is a program designed in collaboration with Christophe Piette as part
-            of the Nazcas Festival.
+            Une invitation à traverser l’Atlantique, à arrêter son regard sur le brouillard matinal, à
+            s’immerger sous l’eau et dans les images qu’elle projette. Voiles et films en pellicule :
+            une séance de navigation est une programmation pensée en collaboration avec
+            Christophe Piette dans le cadre du Nazcas Festival.
         </p>
 
         <ul>
@@ -627,11 +689,14 @@ secondProject.innerHTML = `
     <img src=${allMedia.images.second_i}>
 
     <div class="project-content">
-        <h6 class='title-project'>City peripherie</h6>
+        <h6 class='title-project'>La périphérie</h6>
         <p>
-            A nightclub closed for years reopened for one night. A photographer who meets the
-            inhabitants of houses seen from the train. A steel mill in the Detroit industrial area that
-            ends up looking like a mirage by observing it.
+            Une boîte de nuit fermée depuis des années ré-ouverte pour une nuit. Un photographe
+            qui rencontre les habitant·e·s de maisons aperçues depuis le train. Une aciérie de la
+            zone industrielle de Détroit qui finit par ressembler à un mirage à force de l’observer.<br>
+            Pour clôturer le festival Periferia à Drogenbos, deux court-métrages et un ciné-concert
+            avec l’artiste sonore Pak Yan Lau. Une programmation pour penser et observer les
+            périphéries en décalant notre regard.
         </p>
 
         <ul>
@@ -652,12 +717,13 @@ thirdProject.innerHTML = `
     <img src=${allMedia.images.third_i}>
 
     <div class="project-content">
-        <h6 class='title-project'>Sport</h6>
+        <h6 class='title-project'>Le sport</h6>
         <p>
-            As part of the Ear you Are festival around sound art and radio creation,
-            the Nova’s big screen returns to service and challenges a double duo of musicians for a
-            live scoring experience on a mashup of sports images. They slide, jump, hit, dive. Listen
-            or watch ? Tonight, the rhythms meet and invite you into the game.
+            Dans le cadre du festival Ear you Are, autour de la création sonore et radiophonique,
+            le grand écran du Nova reprend du service et défie un double duo de musicien·nes pour
+            une expérience de live scoring sur fond d’images de sport. Ça glisse, ça saute, ça
+            frappe, ça plonge. Écouter, ou regarder ? Ce soir, les rythmes se répondent et vous
+            invitent dans le jeu.
         </p>
 
         <p class="copyrightphoto">© Maxime Taillez, Julien Hayard</p>
@@ -669,11 +735,10 @@ fourthProject.innerHTML = `
 <div class="grid">
     <img src=${allMedia.images.fourth_i}>
     <div class="project-content">
-        <h6 class='title-project'>The figure of the monster</h6>
+        <h6 class='title-project'>La figure du monstre</h6>
         <p>
-            A cycle in five sessions devoted to strange monsters and creatures of all kinds 
-            within the <a href="https://www.facebook.com/cinebusbxl/" target="blank">Cinébus</a> project, 
-            an old STIB city bus converted into a micro cinema. First project of the Pagktos duo, for us this is where it all started.
+            Un cycle en cinq séances consacré aux monstres étranges et aux créatures en tout genre
+            au sein du projet <a href="https://www.facebook.com/cinebusbxl/" target="blank">Cinébus</a>, un ancien bus de STIB reconverti en micro salle de cinéma.
         </p>
 
         <ul>
@@ -776,7 +841,6 @@ placeSix.innerHTML = `
 // Remove videos after playing
 const allVideos = document.getElementsByTagName('video');
 const videoContainer =document.getElementsByClassName('video-container');
-console.log(videoContainer)
 
 Array.from(videoContainer).forEach(function(item){
     item.style.display = 'none'
@@ -794,30 +858,7 @@ Array.from(allVideos).forEach(function(item){
     }
 }) 
 
-if (window.screen.width < 1000) {
-    console.log('small screen')
-    alert('This website is not smartphone or tablet friendly');
-}
 
 
-/* archiveList.innerHTML = `
-    <span id='${theProjects[0].name+"2"}'>${theProjects[0].name}</span>
-    <span id='${theProjects[1].name+"2"}'>${theProjects[1].name}</span>
-    <span id='${theProjects[2].name+"2"}'>${theProjects[2].name}</span>
-    <span id='${theProjects[3].name+"2"}'>${theProjects[3].name}</span>   
-` */
-
-    //Before
-/* 
-archiveList.innerHTML = `
-
-${theProjects2.map(function(element){
-    return `
-    <p id="${element.name}">${element.name}</p>
-
-    `
-}).join('')}
-
-`  */
 
 
