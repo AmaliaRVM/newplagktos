@@ -1,7 +1,15 @@
 //Global variables 
 
+    //Logo variable
+const logoName = document.getElementById('logo-name');
+
     //Project variables
 const projects = document.getElementById("projects");
+
+const firstWord = document.getElementById("first-word");
+const secondWord = document.getElementById("second-word");
+const thirdWord = document.getElementById("third-word");
+
 
 const firstProject = document.getElementById('first-project');
 const secondProject= document.getElementById('second-project');
@@ -9,7 +17,8 @@ const thirdProject = document.getElementById('third-project');
 const fourthProject = document.getElementById('fourth-project'); 
 
     //Project video variables
-const vprojects = document.getElementById('vprojects')
+const vprojectOne = document.getElementById('vproject-one')
+const vprojectTwo = document.getElementById('vproject-two')
 
 const firstVideoProject = document.getElementById('first-vproject');
 const secondVideoProject= document.getElementById('second-vproject');
@@ -24,8 +33,10 @@ const archiveListProjects = document.getElementById("archive-list-projects");
 const archiveListVideoProjects = document.getElementById("archive-list-vprojects")
 
     //Work places container variables
-const placeIci = document.getElementById('place-ici');
-const placeLa = document.getElementById('place-la');
+const iciContainerOne = document.getElementById('ici-container-one');
+const iciContainerTwo = document.getElementById('ici-container-two');
+
+const containerLa = document.getElementById('container-la');
 
 const placeOne = document.getElementById('place-container-one');
 const placeTwo = document.getElementById('place-container-two');
@@ -53,8 +64,6 @@ const randomCeci = document.getElementById('random-ceci');
     //Contact container variable
 /* const follow = document.getElementById('follow');
 const contactContainer = document.getElementById('contact-container'); */
-
-
 
 
 //All Data 
@@ -106,19 +115,19 @@ const allMedia =
 let theProjects = [
 
     {
-        "name": "la navigation ",
+        "name": "la navigation",
         "content": firstProject,
     },
     {
-        "name": "la périphérie ",
+        "name": "la périphérie",
         "content": secondProject,
     },
     {
-        "name": "le sport ",
+        "name": "le sport",
         "content": thirdProject,
     },
     {
-        "name": "la figure du monstre ",
+        "name": "la figure du monstre",
         "content": fourthProject,
     }
 
@@ -175,7 +184,7 @@ const ceciVideos = [
 
 ]
 
-const thePlaces = [
+let thePlaces = [
     {
         "name": "Ear you are Festival",
         "content": placeOne,
@@ -202,7 +211,13 @@ const thePlaces = [
     }
 ]
 
+//Logo Name
 
+logoName.addEventListener('click', function(){
+    
+    location.reload(); 
+
+})
 
 //Random project words - HTML Template and Loop
 
@@ -217,9 +232,19 @@ theProjects = newNames.slice().concat(theProjects)
 
     //HTML Template for random words projects
 
-projects.innerHTML = `
-<span id='${newNames[0].name+"1"}'>${newNames[0].name}<span id="test">,</span></span>
-<span id='${newNames[1].name+"1"}'>${newNames[1].name}</span>
+/*     projects.innerHTML = `
+    <p id='${newNames[0].name+"1"}'>${newNames[0].name},</p>
+    <p id='${newNames[1].name+"1"}'>${newNames[1].name},</p>
+    <p id='${newNames[2].name+"1"}'>${newNames[2].name}.</p>
+    `  */
+
+firstWord.innerHTML = `
+<span id='${newNames[0].name+"1"}'>${newNames[0].name}</span>
+` 
+secondWord.innerHTML = `
+<span id='${newNames[1].name+"1"}'>${newNames[1].name}</span>   
+`
+thirdWord.innerHTML = `
 <span id='${newNames[2].name+"1"}'>${newNames[2].name}</span>
 ` 
 
@@ -268,10 +293,12 @@ theVideoProjects = newVideoProjects.slice().concat(theVideoProjects)
 
     //HTML Template
 
-vprojects.innerHTML = `
-    <span id='${newVideoProjects[0].name+"1"}'>${newVideoProjects[0].name},</span>
-    <span id='${newVideoProjects[1].name+"1"}'>${newVideoProjects[1].name}</span>
+vprojectOne.innerHTML = `
+    <span id='${newVideoProjects[0].name+"1"}'>${newVideoProjects[0].name}</span>
 ` 
+vprojectTwo.innerHTML = `
+    <span id='${newVideoProjects[1].name+"1"}'>${newVideoProjects[1].name}</span>
+`
 
 
 //Random ici, ici Loop and HTML Template words
@@ -282,9 +309,13 @@ for( i = 6; i > 4; i--) {
     newPlaces.push(thePlaces.splice(rn,1)[0])
 }
 
+thePlaces = newPlaces.slice().concat(thePlaces)
+
     //HTML Template for random places words 
-placeIci.innerHTML = `
-    <span id='${newPlaces[0].name}'>ici,</span>
+iciContainerOne.innerHTML = `
+    <span id='${newPlaces[0].name}'>ici</span>
+`
+iciContainerTwo.innerHTML = `
     <span id='${newPlaces[1].name}'>ici</span>
 `
 
@@ -292,18 +323,29 @@ placeIci.innerHTML = `
 
 function positionRandom () {
     
-    const positionNumbers = [400, 200, 50, 40]
+   /*  const positionNumbers = [1, 2, 2, 1]
     let position = []
-    for( i = 4; i > 1; i--) {
+    for( i = 4; i > 0; i--) {
         randomNumber = Math.floor(Math.random() * i);
         position.push(positionNumbers.splice(randomNumber,1)[0])
-    }
+    } 
     
-    x = position[0]
-    y = position[1]
-    z = position[2]
-
+    x = position[0] 
+    y = position[1] 
+    z = position[2] 
+    */
+    
+    const heightFrame = window.innerHeight - 653;
+    const widthFrame = window.innerWidth - 1145;
+    console.log(widthFrame)
+    t = Math.round(Math.random() * heightFrame) + 60 + "px";
+    b = Math.round(Math.random() * heightFrame) + "px";
+    x = Math.round(Math.random() * widthFrame) + 120 + "px"
+    y = Math.round(Math.random() * widthFrame) + "px";
+    
+    console.log(t, b, x, y)
 }
+
 
 //Cleaning screen function
 
@@ -330,6 +372,7 @@ function remove () {
     theVideoProjects.forEach(name => {
         name.content.style.display = "none"
     })
+
 
     containerList.style.display = "none"
 
@@ -361,10 +404,11 @@ function mappingProjects(element, myint){
         // random position numbers for the project container position
         
         positionRandom()
-        console.log("hello", x,y,z)
-        element.content.style.left = x + "px";
-        element.content.style.right = y + "px"
-        element.content.style.top = z + "px"
+        
+        element.content.style.top = t;
+        element.content.style.right = y;
+        element.content.style.bottom = b;
+        element.content.style.left = x;
 
     }) 
 
@@ -379,7 +423,7 @@ newNames.map(function(x2) {return mappingProjects(x2, "1") })
 // For theVideoProjects List
 
 function mappingVideoProjects(element, myint){
-    console.log(myint)
+    
     const divProject = document.getElementById(element.name+myint);
     divProject.addEventListener('click', function(){
 
@@ -390,10 +434,12 @@ function mappingVideoProjects(element, myint){
         // random position numbers for the project container position
         
         positionRandom()
-        console.log("hello", x,y,z)
-        element.content.style.left = x + "px";
-        element.content.style.right = y + "px"
-        element.content.style.top = z + "px"
+        console.log("hello", x,y,t,b)
+
+        element.content.style.top = t;
+        element.content.style.right = y;
+        element.content.style.bottom = b;
+        element.content.style.left = x;
 
     }) 
 
@@ -412,18 +458,24 @@ newPlaces.map(function(element){
     const divPlaces = document.getElementById(element.name);
     
     divPlaces.addEventListener('click', function(){
+
+        thePlaces.forEach(element => {
+            element.content.style.display = "none"
+        }) 
         
         element.content.style.display = "block";
 
         removeMedia()
 
+        
+        
     })
 
 })
 
 // Display La
 
-placeLa.addEventListener('click', function(){
+containerLa.addEventListener('click', function(){
 
     thePlaces.forEach(element => {
         element.content.style.display = "block"
@@ -448,9 +500,11 @@ randomCeci.addEventListener('click', function(){
     // random position numbers for the project container position
 
     positionRandom()
-    element.content.style.left = x + "px";
-    element.content.style.right = y + "px"
-    element.content.style.top = z + "px"
+    
+    element.content.style.top = t;
+    element.content.style.right = y;
+    element.content.style.bottom = b;
+    element.content.style.left = x;
     
 })
 
@@ -562,15 +616,33 @@ moon.addEventListener('click', function(){
 
     Array.from(allLinks).forEach(function(item){
         item.style.color = "#ffffff";
+        item.style.backgroundImage = "url('./assets/brand/bleu_2.jpg')";
     })
 
     copyrightText.style.backgroundImage = "url('./assets/brand/bleu_2.jpg')";
+    mailContact.style.backgroundImage = "url('./assets/brand/bleu_2.jpg')";
 
 })
 
 
+// Mail contact
+mailContainer = document.getElementById('mail-container')
+mailContact = document.getElementById('mail-contact');
 
+mailContainer.addEventListener('click', function(){
+    mailContact.style.display = 'block';
+})
 
+mailContact.addEventListener('click', function(){
+    mailContact.style.display = 'none';
+})
+
+// Smaller scren message
+
+if (window.screen.width < 1000) {
+    console.log('small screen')
+    alert('This website is not smartphone or tablet friendly');
+}
 
 //
 //
@@ -769,7 +841,6 @@ placeSix.innerHTML = `
 // Remove videos after playing
 const allVideos = document.getElementsByTagName('video');
 const videoContainer =document.getElementsByClassName('video-container');
-console.log(videoContainer)
 
 Array.from(videoContainer).forEach(function(item){
     item.style.display = 'none'
@@ -787,29 +858,7 @@ Array.from(allVideos).forEach(function(item){
     }
 }) 
 
-if (window.screen.width < 1000) {
-    console.log('small screen')
-    alert('This website is not smartphone or tablet friendly');
-}
 
-/* archiveList.innerHTML = `
-    <span id='${theProjects[0].name+"2"}'>${theProjects[0].name}</span>
-    <span id='${theProjects[1].name+"2"}'>${theProjects[1].name}</span>
-    <span id='${theProjects[2].name+"2"}'>${theProjects[2].name}</span>
-    <span id='${theProjects[3].name+"2"}'>${theProjects[3].name}</span>   
-` */
 
- //Before
-/* 
-archiveList.innerHTML = `
-
-${theProjects2.map(function(element){
-    return `
-    <p id="${element.name}">${element.name}</p>
-
-    `
-}).join('')}
-
-`  */
 
 
