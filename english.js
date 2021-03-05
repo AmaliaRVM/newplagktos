@@ -598,6 +598,8 @@ Array.from(divMainContainer).forEach(function(item){
 
 const allSpan = document.getElementsByTagName('span');
 const allLinks = document.getElementsByTagName('a');
+const supOne = document.getElementById('sup-one');
+const supTwo =document.getElementById('sup-two');
 const moon = document.getElementById('moon');
 const sun = document.getElementById('sun');
 const copyrightText = document.getElementById('copyright-text');
@@ -619,6 +621,8 @@ moon.addEventListener('click', function(){
         item.style.backgroundImage = "url('./assets/brand/bleu_2.jpg')";
     })
 
+    supOne.style.color = "#ffffff";
+    supTwo.style.color = "#ffffff";
     copyrightText.style.backgroundImage = "url('./assets/brand/bleu_2.jpg')";
     mailContact.style.backgroundImage = "url('./assets/brand/bleu_2.jpg')";
 
