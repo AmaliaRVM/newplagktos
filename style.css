@@ -31,8 +31,7 @@ h6, h1, p, li, ul{
 }
 
 p{
-    font-size: 18px;
-    /* padding-bottom: 25px; */
+    font-size: 20px;
 }
 
 a{
@@ -47,7 +46,7 @@ li{
 }
 
 span{
-    font-size: 18px;
+    font-size: 20px;
     color: rgb(0, 2, 255);
     cursor: pointer;
     text-decoration: underline;
@@ -70,13 +69,13 @@ sup{
 
 header{
     width: 20%;
-    margin: 15px 0 0 30px;
+    margin: 15px 0 0 28px;
 }
 
 /* Archives */
 
 #archives{
-    margin-right: 30px;
+    margin-right: 28px;
     position: absolute;
     top: 20px;
     right: 5px;
@@ -126,9 +125,9 @@ header{
 
 section{
     position: fixed;
-    left: 30px;
+    left: 28px;
     top: 150px;
-    width: 20%;
+    max-width: 370px;
 }
 
 .about-plagktos{
@@ -145,21 +144,21 @@ section{
     text-decoration: none;
 }
 #first-word span{
-    font-size: 18px;
+    font-size: 20px;
 }
 #second-word{
     font-size: 0;
     text-decoration: none;
 }
 #second-word span{
-    font-size: 18px;
+    font-size: 20px;
 }
 #third-word{
     font-size: 0;
     text-decoration: none;
 }
 #third-word span{
-    font-size: 18px;
+    font-size: 20px;
 }
 
 /* Random places containers */
@@ -169,7 +168,7 @@ section{
     font-size: 0;
 }
 #ici-container-one span{
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #ici-container-two{
@@ -177,7 +176,7 @@ section{
     text-decoration: none;
 }
 #ici-container-two span{
-    font-size: 18px;
+    font-size: 20px;
 }
 
 /* Random videos projects containers */
@@ -187,14 +186,14 @@ section{
     text-decoration: none;
 }
 #vproject-one span {
-    font-size: 18px;
+    font-size: 20px;
 }
 #vproject-two {
     font-size: 0;
     text-decoration: none;
 }
 #vproject-two span {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 /* Projects Content */
@@ -349,13 +348,14 @@ video:hover{
 /* Footer */
 
 .language{
-    margin-left: 30px;
+    margin-left: 28px;
     position: absolute;
     bottom: 20px;
     left: 5px;
 }
 
 .language a{
+    font-family: 'lotaGrotesqueBold';
     color: #000000;
     text-decoration: none;
 }
@@ -369,7 +369,7 @@ video:hover{
 }
 
 .ld-container{
-    margin-right: 30px;
+    margin-right: 28px;
     display: inline-block;
     position: absolute;
     bottom: 20px;
