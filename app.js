@@ -229,7 +229,6 @@ for( i = 4; i > 1; i--) {
 
 theProjects = newNames.slice().concat(theProjects)
 
-
     //HTML Template for random words projects
 
 /*     projects.innerHTML = `
@@ -249,6 +248,7 @@ thirdWord.innerHTML = `
 ` 
 
 // HTML Template for archive words projects
+console.log(archiveListProjects);
     
 archiveListProjects.innerHTML = `
 
@@ -393,7 +393,7 @@ function removeMedia () {
 
 // For theProject List
 function mappingProjects(element, myint){
-    console.log(myint)
+    
     const divProject = document.getElementById(element.name+myint);
     divProject.addEventListener('click', function(){
 
@@ -625,6 +625,49 @@ moon.addEventListener('click', function(){
     supTwo.style.color = "#ffffff";
     copyrightText.style.backgroundImage = "url('./assets/brand/bleu_2.jpg')";
     mailContact.style.backgroundImage = "url('./assets/brand/bleu_2.jpg')";
+
+    //Yellow Hover
+
+        //Projects Hover
+    yellowHoverArray = []
+    var yellowHoverfunc = function(myElement) {
+        yellowHoverArray.push(
+            myElement.addEventListener("mouseenter", function(){
+                    myElement.style.color = "#ffff00"; 
+                })
+        )
+        yellowHoverArray.push(
+            myElement.addEventListener("mouseleave", function(){
+                myElement.style.color = "#ffffff"; 
+            })
+        )
+    }
+
+    theProjects.forEach(function(element){
+        yellowHoverfunc(document.getElementById(element.name+'2'))
+    })
+
+        //Videos Hover
+    yellowHoverArrayTwo = []
+    var yellowHoverfunc = function(myElement) {
+        yellowHoverArrayTwo.push(
+            myElement.addEventListener("mouseenter", function(){
+                    myElement.style.color = "#ffff00"; 
+                })
+        )
+        yellowHoverArrayTwo.push(
+            myElement.addEventListener("mouseleave", function(){
+                myElement.style.color = "#ffffff"; 
+            })
+        )
+    }
+
+    theVideoProjects.forEach(function(element){
+        yellowHoverfunc(document.getElementById(element.name+'2'))
+    })
+
+
+
 
 })
 
