@@ -291,14 +291,23 @@ video:hover{
     display: inline-block;
     visibility: hidden;
     font-size: 16px;
-    position: absolute;
-    margin-top: -20px;
-    left: 144px;
 }
 
 .link-contact a{
     background-color: #ffffff;
     padding: 2px;
+}
+
+.lc-french{
+    position: absolute;
+    margin-top: -20px;
+    left: 144px;
+}
+
+.lc-english{
+    position: absolute;
+    margin-top: -20px;
+    left: 87px;
 }
 
 #contact-container:hover a{
@@ -314,9 +323,18 @@ video:hover{
     display: none;
     background-color: #ffffff;
     font-size: 18px;
+}
+
+.cela{
     position: absolute;
+    left: 220px;
     margin-top: -24px;
-    left: 148px;
+}
+
+.this{
+    position: absolute;
+    left: 135px;
+    margin-top: -24px;
 }
 
 /* Copyright Container */
