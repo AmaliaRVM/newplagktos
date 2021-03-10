@@ -127,7 +127,7 @@ section{
     position: fixed;
     left: 28px;
     top: 150px;
-    max-width: 370px;
+    width: 20%;
 }
 
 .about-plagktos{
@@ -293,7 +293,7 @@ video:hover{
     font-size: 16px;
     position: absolute;
     margin-top: -20px;
-    left: 130px;
+    left: 144px;
 }
 
 .link-contact a{
@@ -316,7 +316,7 @@ video:hover{
     font-size: 18px;
     position: absolute;
     margin-top: -24px;
-    left: 133px;
+    left: 148px;
 }
 
 /* Copyright Container */
