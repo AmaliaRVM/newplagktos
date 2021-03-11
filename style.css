@@ -8,6 +8,20 @@
     src: url('Lota-Grotesque-Alt-3-Semi-Bold.woff') format('woff');
 }
 
+/* Variables */
+
+:root{
+
+    /* font size */
+    --type-body-regular: 20px;
+    --type-body-medium: 14px;
+    --type-body-small: 12px;
+
+    /* font color */
+    --link-main-color: rgb(0, 2, 255);
+
+}
+
 /* Main styles */
 
 *{
@@ -31,30 +45,30 @@ h6, h1, p, li, ul{
 }
 
 p{
-    font-size: 20px;
+    font-size: var(--type-body-regular);
 }
 
 a{
-    color: rgb(0, 2, 255);
+    color: var(--type-main-color);
     text-decoration: underline;
     cursor: pointer;
 }
 
 li{
     list-style: none;
-    font-size: 14px;
+    font-size: var(--type-body-medium);
 }
 
 span{
-    font-size: 20px;
-    color: rgb(0, 2, 255);
+    font-size: var(--type-body-regular);
+    color: var(--type-main-color);
     cursor: pointer;
     text-decoration: underline;
 }
 
 sup{
-    font-size: 12px;
-    color: rgb(0, 2, 255);
+    font-size: var(--type-body-small);
+    color: var(--type-main-color);
 }
 
 
@@ -102,7 +116,7 @@ header{
 }
 
 .projects-hover:hover {
-    color: rgb(0, 2, 255);
+    color: var(--link-main-color);
 }
 
 .videos-hover{
@@ -112,7 +126,7 @@ header{
 }
 
 .videos-hover:hover{
-    color: rgb(0, 2, 255);
+    color: var(--link-main-color);
 }
 
 
@@ -144,21 +158,21 @@ section{
     text-decoration: none;
 }
 #first-word span{
-    font-size: 20px;
+    font-size: var(--type-body-regular);
 }
 #second-word{
     font-size: 0;
     text-decoration: none;
 }
 #second-word span{
-    font-size: 20px;
+    font-size: var(--type-body-regular);
 }
 #third-word{
     font-size: 0;
     text-decoration: none;
 }
 #third-word span{
-    font-size: 20px;
+    font-size: var(--type-body-regular);
 }
 
 /* Random places containers */
@@ -168,7 +182,7 @@ section{
     font-size: 0;
 }
 #ici-container-one span{
-    font-size: 20px;
+    font-size: var(--type-body-regular);
 }
 
 #ici-container-two{
@@ -176,7 +190,7 @@ section{
     text-decoration: none;
 }
 #ici-container-two span{
-    font-size: 20px;
+    font-size: var(--type-body-regular);
 }
 
 /* Random videos projects containers */
@@ -219,7 +233,7 @@ section{
 .main-container img:hover{
     border-style: solid;
     border-width: 5px;
-    border-color: #0002FF;
+    border-color: var(--link-main-color);
 }
 .main-container #boat-image:hover {
     border-style: none;
@@ -275,11 +289,11 @@ video{
 video:hover{
     border-style: solid;
     border-width: 5px;
-    border-color: #0002FF;
+    border-color: var(--link-main-color);
 }
 
 .copyright-video{
-    font-size: 12px;
+    font-size: var(--type-body-small);
 }
 
 /* Contact */
@@ -322,7 +336,7 @@ video:hover{
 #mail-contact{
     display: none;
     background-color: #ffffff;
-    font-size: 18px;
+    font-size: var(--type-body-regular);
 }
 
 .cela{
@@ -402,4 +416,17 @@ video:hover{
 #moon{
     width: 16px;
     cursor: pointer;
+}
+
+/* Responsive Style */
+
+@media only screen and (max-width: 1024px) {
+
+    .body{
+        width: 100%;
+        margin: 0 auto;
+        padding: 5px;
+    }
+
+
 }
