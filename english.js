@@ -603,6 +603,7 @@ const supTwo =document.getElementById('sup-two');
 const moon = document.getElementById('moon');
 const sun = document.getElementById('sun');
 const copyrightText = document.getElementById('copyright-text');
+const curseur = document.getElementsByClassName('curseur');
 
     // To dark mode
 moon.addEventListener('click', function(){
@@ -619,6 +620,11 @@ moon.addEventListener('click', function(){
     Array.from(allLinks).forEach(function(item){
         item.style.color = "#ffffff";
         item.style.backgroundImage = "url('./assets/brand/bleu_2.jpg')";
+    })
+
+    Array.from(curseur).forEach(function(item){
+        console.log(item)
+        item.src = './assets/brand/curseur_nuit.png';
     })
 
     supOne.style.color = "#ffffff";
@@ -857,32 +863,32 @@ sixVideo.innerHTML = `
 
 placeOne.innerHTML = `
     <a href="${allMedia.links.first_place}" target="blank">Ear you are Festival</a>
-    <img src="./assets/brand/curseur.png">
+    <img class="curseur" src="./assets/brand/curseur.png">
 `
 
 placeTwo.innerHTML = `
     <a href="${allMedia.links.second_place}" target="blank">Periferia Festival</a>
-    <img src="./assets/brand/curseur.png">
+    <img class="curseur" src="./assets/brand/curseur.png">
 `
 
 placeThird.innerHTML = `
     <a href="${allMedia.links.third_place}" target="blank">Cinebus</a>
-    <img src="./assets/brand/curseur.png">
+    <img class="curseur" src="./assets/brand/curseur.png">
 `
 
 placeFourth.innerHTML = `
     <a href="${allMedia.links.fourth_place}" target="blank">Allee du Kaai</a>
-    <img src="./assets/brand/curseur.png">
+    <img class="curseur" src="./assets/brand/curseur.png">
 `
 
 placeFifth.innerHTML = `
     <a href="${allMedia.links.fifth_place}" target="blank">Nazcas Festival</a>
-    <img src="./assets/brand/curseur.png">
+    <img class="curseur" src="./assets/brand/curseur.png">
 `
 
 placeSix.innerHTML = `
     <a href="${allMedia.links.six_place}" target="blank">Cine Nova</a>
-    <img src="./assets/brand/curseur.png">
+    <img class="curseur" src="./assets/brand/curseur.png">
 `
 
 // Remove videos after playing
