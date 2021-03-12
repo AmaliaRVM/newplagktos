@@ -423,8 +423,13 @@ video:hover{
 #go-back-link{
     font-family: "lotaGrotesqueBold";
     display: none;
+    /* margin-right: 28px;
+    text-align: right; */
     margin-right: 28px;
-    text-align: right;
+    position: fixed;
+    bottom: 20px;
+    right: 5px; 
+
 
 }
 
@@ -458,16 +463,15 @@ video:hover{
         color: #ffffff;
     }
 
+
     section{
         position: relative;
         left: 0;
         top: 0;
-        margin: 90px auto 5px auto;
+        margin: 60px auto 5px auto;
     }
 
-    .about-plagktos{
-        text-align: justify;;
-    }
+
 
     #archives{
         display: none;
@@ -479,10 +483,10 @@ video:hover{
 
     .main-container{
         width: 80%;
-        margin: 40px auto 20px auto;
+        margin: 25px auto 20px auto;
         position: relative;
 
-    }
+    } 
 
     .main-container img{
         width: 100%;
@@ -494,10 +498,12 @@ video:hover{
     }
 
     .project-content{
+        width: 80%;
         margin: 0px;
     }
 
-    /* Social Media */
+    /* Mail */
+
     #mail-contact{
         background-image: url('./assets/brand/bleu_2.jpg');
     }
@@ -506,19 +512,43 @@ video:hover{
         padding-bottom: 20px;
     }
 
+    .cela{
+        position: relative;
+        left: 0;
+        margin-top: 0;
+    }
+
+    .this{
+        position: relative;
+        left: 0;
+        margin-top: 0;
+    } 
+
+
+     /* Social Media */
+
     .link-contact{
-        display: inline-block;
-        visibility: hidden;
+        /* display: inline-block; */
         font-size: var(--type-body-regular);
     }
 
     .link-contact a{
         background-image: url('./assets/brand/bleu_2.jpg');
+        color: #ffffff;
     }
 
-    #contact-container:hover a{
-        visibility: visible;
+    .lc-french{
+        position: relative;
+        margin-top: 0;
+        left: 0;
     }
+
+    .lc-english{
+        position: relative;
+        margin-top: 0;
+        left: 0;
+    }
+
 
     #ou-sur{
         text-decoration: none;
@@ -531,10 +561,10 @@ video:hover{
         display: none;
     }
 
-    /* .language{
+    .language{
         position: relative;
-        margin: 20px 0 20px 28px;
-    } */
+        margin: 30px 0 20px 28px;
+    } 
 
     .language a{
         color: #ffffff;
@@ -544,12 +574,30 @@ video:hover{
 
     video{
         width: 100%
-    }
+    } 
 
     .video-container{
         width: 100%;
         margin:0;
+    } 
+
+    /* Floating screen */
+
+    #ecran-flottant{
+        position: relative;
+        margin: 80px auto 0 auto;
     }
+
+    .place{
+        position: relative;
+        width: 50%;
+        margin-bottom: 20px;
+    }
+
+    .place a{
+        color: #ffff00;
+    }
+
 
 }
 
@@ -560,6 +608,28 @@ video:hover{
     section{
         width: 90%;
     } 
+
+    header {
+        margin: 15px 0 0 10px;
+    }
+
+    .language{
+        position: relative;
+        margin: 30px 0 20px 10px;
+    }
+    
+    #go-back-link{
+        font-family: "lotaGrotesqueBold";
+        display: none;
+        margin-right: 28px;
+        text-align: right; 
+        position: relative;
+    }
+
+    .project-content{
+        width: 100%;
+    }
+
 
 }
 

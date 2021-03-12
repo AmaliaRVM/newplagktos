@@ -61,9 +61,11 @@ const divMainContainer = document.getElementsByClassName('main-container');
 
 const randomCeci = document.getElementById('random-ceci');
 
-    //Contact container variable
-/* const follow = document.getElementById('follow');
-const contactContainer = document.getElementById('contact-container'); */
+    //Responsive Screen
+const goBack = document.getElementById('go-back-link');
+const removeSection = document.querySelector('section');
+const removeLanguage = document.querySelector('.language');
+
 
 
 //All Data 
@@ -447,7 +449,13 @@ newPlaces.map(function(element){
 
         removeMedia()
 
-        
+        if(window.screen.width < 1025){
+
+            document.body.scrollTop = document.body.scrollHeight;
+            document.documentElement.scrollTop = document.documentElement.scrollHeight;
+
+        }
+
         
     })
 
@@ -462,6 +470,17 @@ containerLa.addEventListener('click', function(){
     })
 
     removeMedia()
+
+    if(window.screen.width < 1025){
+
+        document.body.scrollTop = document.body.scrollHeight;
+        document.documentElement.scrollTop = document.documentElement.scrollHeight;
+
+        removeSection.style.display = 'none';
+        goBack.style.display = 'block';
+        removeLanguage.style.display = 'none';
+
+    }
 })
 
 
@@ -494,6 +513,10 @@ randomCeci.addEventListener('click', function(){
 screenContainer.addEventListener('click', function(){
     remove()
     ecranFlottant.style.display = "block";
+
+    if (window.screen.width < 1025){
+        goBack.style.display = "block";
+    }
     
 })
 
@@ -574,7 +597,7 @@ Array.from(divMainContainer).forEach(function(item){
 })
 
 
-//Dark and Light mode
+////Dark mode
 
 const allSpan = document.getElementsByTagName('span');
 const allLinks = document.getElementsByTagName('a');
@@ -890,9 +913,6 @@ Array.from(allVideos).forEach(function(item){
 
 if (window.screen.width < 1025) {
 
-    const goBack = document.getElementById('go-back-link');
-    const removeSection = document.querySelector('section');
-
     const responsivePosition = positionRandom;
     positionRandom = function (){
         t = 20 + "px";
@@ -915,7 +935,6 @@ if (window.screen.width < 1025) {
         console.log(removeSection);
         removeSection.style.display = 'none';
  
-        const removeLanguage = document.querySelector('.language');
         removeLanguage.style.display = 'none';
         
     }
@@ -945,6 +964,31 @@ if (window.screen.width < 1025) {
         removeSection.style.display = 'block';
         goBack.style.display = 'none'; 
         removeLanguage.style.display = 'block'; 
+    })
+
+    const follow = document.getElementById('follow');
+    follow.addEventListener('click', function(){
+
+        const socialMedia = document.querySelector('.link-contact')
+
+        if (socialMedia.style.display === "block") {
+            socialMedia.style.display = "none";
+        } else {
+            socialMedia.style.display = "block";
+        }
+
+    })
+
+    const place = document.getElementsByClassName('place');
+    console.log(place)
+
+    Array.from(place).forEach(item => {
+
+        item.style.left = Math.round(Math.random() * 186)+ "px";
+        item.style.bottom = Math.round(Math.random() * 78)+ "px";
+        item.style.top = '0px';
+
+        console.log('in')
     })
 
 } 
