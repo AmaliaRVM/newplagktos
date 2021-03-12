@@ -420,15 +420,147 @@ video:hover{
     cursor: pointer;
 }
 
+#go-back-link{
+    font-family: "lotaGrotesqueBold";
+    display: none;
+    margin-right: 28px;
+    text-align: right;
+
+}
+
 /* Responsive Style */
 
-@media only screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
 
-    .body{
+    body{
+        background-image: url('./assets/brand/bleu_2.jpg');
         width: 100%;
         margin: 0 auto;
         padding: 5px;
+        overflow: scroll;
+
+        color: #ffffff;
     }
 
+    span{
+        color: #ffffff;
+    }
+
+    a{
+        color: #ffffff;
+    }
+
+    li {
+        color: #ffffff;
+    }
+
+    h1{
+        color: #ffffff;
+    }
+
+    section{
+        position: relative;
+        left: 0;
+        top: 0;
+        margin: 90px auto 5px auto;
+    }
+
+    .about-plagktos{
+        text-align: justify;;
+    }
+
+    #archives{
+        display: none;
+    }
+
+    .copy-container{
+        display: none;
+    }
+
+    .main-container{
+        width: 80%;
+        margin: 40px auto 20px auto;
+        position: relative;
+
+    }
+
+    .main-container img{
+        width: 100%;
+        margin: 5px auto 5px auto;
+    }
+
+    .grid{
+        display: block;
+    }
+
+    .project-content{
+        margin: 0px;
+    }
+
+    /* Social Media */
+    #mail-contact{
+        background-image: url('./assets/brand/bleu_2.jpg');
+    }
+
+    #contact-container{
+        padding-bottom: 20px;
+    }
+
+    .link-contact{
+        display: inline-block;
+        visibility: hidden;
+        font-size: var(--type-body-regular);
+    }
+
+    .link-contact a{
+        background-image: url('./assets/brand/bleu_2.jpg');
+    }
+
+    #contact-container:hover a{
+        visibility: visible;
+    }
+
+    #ou-sur{
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    /* Language */
+
+    .ld-container{
+        display: none;
+    }
+
+    /* .language{
+        position: relative;
+        margin: 20px 0 20px 28px;
+    } */
+
+    .language a{
+        color: #ffffff;
+    }
+
+    /* Videos */
+
+    video{
+        width: 100%
+    }
+
+    .video-container{
+        width: 100%;
+        margin:0;
+    }
 
 }
+
+/* Smaller screen */
+
+@media screen and (max-width: 490px) {
+    
+    section{
+        width: 90%;
+    } 
+
+}
+
+

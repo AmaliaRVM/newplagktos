@@ -229,13 +229,6 @@ for( i = 4; i > 1; i--) {
 
 theProjects = newNames.slice().concat(theProjects)
 
-    //HTML Template for random words projects
-
-/*     projects.innerHTML = `
-    <p id='${newNames[0].name+"1"}'>${newNames[0].name},</p>
-    <p id='${newNames[1].name+"1"}'>${newNames[1].name},</p>
-    <p id='${newNames[2].name+"1"}'>${newNames[2].name}.</p>
-    `  */
 
 firstWord.innerHTML = `
 <span id='${newNames[0].name+"1"}'>${newNames[0].name}</span>
@@ -253,9 +246,9 @@ console.log(archiveListProjects);
 archiveListProjects.innerHTML = `
 
 ${theProjects.map(function(element){
+    
     return `
     <span class="projects-hover" id="${element.name+"2"}">${element.name}</span>
-
     `
 }).join('')}
 `
@@ -323,18 +316,6 @@ iciContainerTwo.innerHTML = `
 
 function positionRandom () {
     
-   /*  const positionNumbers = [1, 2, 2, 1]
-    let position = []
-    for( i = 4; i > 0; i--) {
-        randomNumber = Math.floor(Math.random() * i);
-        position.push(positionNumbers.splice(randomNumber,1)[0])
-    } 
-    
-    x = position[0] 
-    y = position[1] 
-    z = position[2] 
-    */
-    
     const heightFrame = window.innerHeight - 653;
     const widthFrame = window.innerWidth - 1145;
     console.log(widthFrame)
@@ -395,6 +376,7 @@ function removeMedia () {
 function mappingProjects(element, myint){
     
     const divProject = document.getElementById(element.name+myint);
+    console.log(divProject)
     divProject.addEventListener('click', function(){
 
         remove()
@@ -694,12 +676,6 @@ mailContact.addEventListener('click', function(){
     mailContact.style.display = 'none';
 })
 
-// Smaller scren message
-
-if (window.screen.width < 1000) {
-    console.log('small screen')
-    alert('This website is not smartphone or tablet friendly');
-}
 
 //
 //
@@ -916,6 +892,69 @@ Array.from(allVideos).forEach(function(item){
 }) 
 
 
+// Responsive Screen
+
+if (window.screen.width < 1025) {
+
+    const goBack = document.getElementById('go-back-link');
+    const removeSection = document.querySelector('section');
+    const removeLanguage = document.querySelector('.language');
+
+    const responsivePosition = positionRandom;
+    positionRandom = function (){
+        t = 20 + "px";
+        b = 20 + "px";
+        x = 0;
+        y = 0;
+
+        document.body.scrollTop = document.body.scrollHeight;
+        document.documentElement.scrollTop = document.documentElement.scrollHeight; 
+
+        goBack.style.display = 'block'; 
+
+    }
+
+    responsivePosition()
+
+    const responsiveRemove = remove;
+    remove = function () {
+
+        console.log(removeSection);
+        removeSection.style.display = 'none';
+
+        removeLanguage.style.display = 'none';
+        
+    }
+
+    responsiveRemove() 
+
+    goBack.addEventListener('click', function(){
+
+        theProjects.forEach(name => {
+            name.content.style.display = "none"
+        })
+
+        ceciVideos.forEach(name => {
+            name.content.style.display = "none"
+        })
+    
+        ecranFlottant.style.display = "none"
+
+        thePlaces.forEach(element => {
+            element.content.style.display = "none"
+        })
+    
+        theVideoProjects.forEach(name => {
+            name.content.style.display = "none"
+        })        
+
+        removeSection.style.display = 'block';
+        goBack.style.display = 'none';
+        removeLanguage.style.display = 'block'; 
+
+    })
+
+} 
 
 
 
