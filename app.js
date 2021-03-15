@@ -606,9 +606,9 @@ Array.from(divMainContainer).forEach(function(item){
     let xOffset = 0;
     let yOffset = 0;
 
-    item.addEventListener("touchstart", dragStart, false);
+    /* item.addEventListener("touchstart", dragStart, false);
     item.addEventListener("touchend", dragEnd, false);
-    item.addEventListener("touchmove", drag, false);
+    item.addEventListener("touchmove", drag, false); */
 
     item.addEventListener("mousedown", dragStart, false);
     item.addEventListener("mouseup", dragEnd, false);
@@ -618,9 +618,11 @@ Array.from(divMainContainer).forEach(function(item){
     
     function dragStart (e) {
         
-        if(e.type === 'touchstart') {
-            initialX = e.touches[0].clientX - xOffset;
-            initialY = e.touches[0].clientY - yOffset;
+        if(e.type === 'mousedown') {
+            /* initialX = e.touches[0].clientX - xOffset;
+            initialY = e.touches[0].clientY - yOffset; */
+            initialX = e.clientX - xOffset;
+            initialY = e.clientY - yOffset;
             
         } else {
             initialX = e.clientX - xOffset;
@@ -637,9 +639,11 @@ Array.from(divMainContainer).forEach(function(item){
             
             e.preventDefault();
             
-            if (e.type === "touchmove") {
-                currentX = e.touches[0].clientX - initialX;
-                currentY = e.touches[0].clientY - initialY;
+            if (e.type === "mousemove") {
+                /* currentX = e.touches[0].clientX - initialX;
+                currentY = e.touches[0].clientY - initialY; */
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
             } else {
                 currentX = e.clientX - initialX;
                 currentY = e.clientY - initialY;
