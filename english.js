@@ -968,7 +968,7 @@ firstChronique.innerHTML = `
 
     <img src=${allMedia.chroniques_images.first_c}>
 
-    <div class="project-content chroniques-content">
+    <div class="project-content chroniques-content scroller">
         <h6 class='title-project'>Free, White and 21</h6>
         <h6 class='title-project'>Howardena Pindell 1980</h6>
         <p>Chronique du 2 février 2021 pour Radio Campus Bruxelles</p>
