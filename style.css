@@ -157,10 +157,30 @@ section{
 }
 
 .chroniques-content {
-    overflow: auto;
     height: 520px;
     padding-right: 10px;
 }
+
+/* Firefox */
+.scroller{
+    overflow-y: scroll;
+    scrollbar-color: var(--link-main-color)  	#E0E0E0;
+}
+
+/* Scroll Bar for chrome */
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--link-main-color);
+}
+
+::-webkit-scrollbar-track {
+    background:  	#E0E0E0;
+}
+
 
 .chroniques-content p{
     margin-bottom: 10px;
