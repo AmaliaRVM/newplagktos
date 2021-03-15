@@ -169,15 +169,15 @@ section{
 
 /* Scroll Bar for chrome */
 
-::-webkit-scrollbar .scroller {
+::-webkit-scrollbar {
     width: 12px;
 }
 
-::-webkit-scrollbar-thumb .scroller {
+::-webkit-scrollbar-thumb {
     background: var(--link-main-color);
 }
 
-::-webkit-scrollbar-track .scroller {
+::-webkit-scrollbar-track {
     background:  	#E0E0E0;
 }
 
@@ -594,6 +594,20 @@ video:hover{
     #ou-sur{
         text-decoration: none;
         color: #ffffff;
+    }
+
+    /* Scroll */
+
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: var(--link-main-color);
+    }
+    
+    ::-webkit-scrollbar-track {
+        background:  	#E0E0E0;
     }
 
     /* Language */
