@@ -963,7 +963,7 @@ firstChronique.innerHTML = `
 
     <img src=${allMedia.chroniques_images.first_c}>
 
-    <div class="project-content chroniques-content">
+    <div class="project-content chroniques-content scroller">
         <h6 class='title-project'>Free, White and 21</h6>
         <h6 class='title-project'>Howardena Pindell 1980</h6>
         <p>Chronique du 2 février 2021 pour Radio Campus Bruxelles</p>
@@ -1122,7 +1122,11 @@ if (window.screen.width < 1025) {
     
         theVideoProjects.forEach(name => {
             name.content.style.display = "none"
-        })        
+        }) 
+        
+        chroniques.forEach(name => {
+            name.content.style.display = "none"
+        }) 
 
         removeSection.style.display = 'block';
         goBack.style.display = 'none';

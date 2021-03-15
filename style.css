@@ -169,15 +169,15 @@ section{
 
 /* Scroll Bar for chrome */
 
-::-webkit-scrollbar {
+::-webkit-scrollbar .scroller {
     width: 12px;
 }
 
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb .scroller {
     background: var(--link-main-color);
 }
 
-::-webkit-scrollbar-track {
+::-webkit-scrollbar-track .scroller {
     background:  	#E0E0E0;
 }
 
@@ -609,6 +609,12 @@ video:hover{
 
     .language a{
         color: #ffffff;
+    }
+
+    /* Chroniques */
+
+    .chroniques-content {
+        width: 100%;
     }
 
     /* Videos */

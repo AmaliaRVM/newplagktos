@@ -1129,7 +1129,11 @@ if (window.screen.width < 1025) {
     
         theVideoProjects.forEach(name => {
             name.content.style.display = "none"
-        })        
+        })
+        
+        chroniques.forEach(name => {
+            name.content.style.display = "none"
+        })
 
         removeSection.style.display = 'block';
         goBack.style.display = 'none'; 
