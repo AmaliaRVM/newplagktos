@@ -1089,8 +1089,8 @@ if (window.screen.width < 1025) {
         x = 0;
         y = 0;
 
-        document.body.scrollTop = document.body.scrollHeight;
-        document.documentElement.scrollTop = document.documentElement.scrollHeight; 
+        /* document.body.scrollTop = document.body.scrollHeight;
+        document.documentElement.scrollTop = document.documentElement.scrollHeight; */ 
         goBack.style.display = 'block'; 
     }
     
