@@ -152,6 +152,30 @@ section{
     text-align: left; 
 }
 
+.chroniques-container {
+    height: max-content;
+}
+
+.chroniques-content {
+    overflow: auto;
+    height: 520px;
+    padding-right: 10px;
+}
+
+.chroniques-content p{
+    margin-bottom: 10px;
+}
+
+.chroniques-hover {
+    color: #000000;
+    display: block;
+    text-decoration: none;
+}
+
+.chroniques-hover:hover{
+    color: var(--link-main-color);
+}
+
 /* Random words project */
 
 #first-word{
@@ -463,15 +487,12 @@ video:hover{
         color: #ffffff;
     }
 
-
     section{
         position: relative;
         left: 0;
         top: 0;
         margin: 60px auto 5px auto;
     }
-
-
 
     #archives{
         display: none;

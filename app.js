@@ -29,8 +29,10 @@ const fourthVideoProject = document.getElementById('fourth-vproject');
     //The Archive container
 const archives = document.getElementById("archives");
 const containerList = document.getElementById("container-list")
+
 const archiveListProjects = document.getElementById("archive-list-projects");
 const archiveListVideoProjects = document.getElementById("archive-list-vprojects")
+const archiveListChroniques = document.getElementById("archive-list-chroniques");
 
     //Work places container variables
 const iciContainerOne = document.getElementById('ici-container-one');
@@ -46,6 +48,8 @@ const placeFifth = document.getElementById('place-container-fifth');
 const placeSix = document.getElementById('place-container-six');
 
     //Video container variables
+const randomCeci = document.getElementById('random-ceci');
+
 const firstVideo = document.getElementById('first-video');
 const secondVideo = document.getElementById('second-video');
 const thirdVideo = document.getElementById('third-video');
@@ -53,13 +57,17 @@ const fourthVideo = document.getElementById('fourth-video');
 const fifthVideo = document.getElementById('fifth-video');
 const sixVideo = document.getElementById('six-video');
 
+    //Chroniques
+const randomChroniques = document.getElementById('random-chroniques');
+
+const firstChronique = document.getElementById('first-chronique');
+
     //Floating screen container variable
 const screenContainer = document.getElementById('screen-project');
 const ecranFlottant = document.getElementById('ecran-flottant');
 
+    //All main-containers
 const divMainContainer = document.getElementsByClassName('main-container');
-
-const randomCeci = document.getElementById('random-ceci');
 
     //Responsive screen
 const goBack = document.getElementById('go-back-link');
@@ -106,9 +114,14 @@ const allMedia =
         "fourth_place": "https://toestand.be/projecten/alleedukaai",
         "fifth_place": "https://www.facebook.com/Nazcas-Festival-845571945786282/",
         "six_place": "https://www.nova-cinema.org/?lang=fr",
+    },
+
+    "chroniques_images": {
+        "first_c": "./assets/img/chronique_Free_White_21.png",
     }
 
 }
+
 
 // Random projects words
 
@@ -211,6 +224,16 @@ let thePlaces = [
     }
 ]
 
+const chroniques = [
+    {
+        "name": "free white and 21",
+        "content": firstChronique
+
+    }
+
+]
+
+
 //Logo Name
 
 logoName.addEventListener('click', function(){
@@ -240,8 +263,7 @@ thirdWord.innerHTML = `
 <span id='${newNames[2].name+"1"}'>${newNames[2].name}</span>
 ` 
 
-// HTML Template for archive words projects
-console.log(archiveListProjects);
+// HTML Template for archive words, videos and chroniques
     
 archiveListProjects.innerHTML = `
 
@@ -263,7 +285,19 @@ archiveListVideoProjects.innerHTML = `
     }).join('')}
 `
 
-// Display archive projects words
+archiveListChroniques.innerHTML = `
+
+${chroniques.map(function(element){
+    return `
+    <span class="chroniques-hover" id="${element.name}">${element.name}</span>
+
+    `
+}).join('')}
+
+` 
+
+
+// Display archive container
 
 archives.addEventListener('click', function(){
 
@@ -312,7 +346,7 @@ iciContainerTwo.innerHTML = `
     <span id='${newPlaces[1].name}'>ici</span>
 `
 
-// Random screen position
+// Random screen position function
 
 function positionRandom () {
     
@@ -354,6 +388,9 @@ function remove () {
         name.content.style.display = "none"
     })
 
+    chroniques.forEach(name => {
+        name.content.style.display = "none"
+    })
 
     containerList.style.display = "none"
 
@@ -407,6 +444,7 @@ newNames.map(function(x2) {return mappingProjects(x2, "1") })
 function mappingVideoProjects(element, myint){
     
     const divProject = document.getElementById(element.name+myint);
+    console.log(divProject)
     divProject.addEventListener('click', function(){
 
         remove()
@@ -495,7 +533,7 @@ randomCeci.addEventListener('click', function(){
 
     element.content.style.display = 'block';
 
-    // random position numbers for the project container position
+    // random position for Ceci videos
 
     positionRandom()
     
@@ -504,6 +542,43 @@ randomCeci.addEventListener('click', function(){
     element.content.style.bottom = b;
     element.content.style.left = x;
     
+})
+
+// Display Chroniques
+
+randomChroniques.addEventListener('click', function(){
+
+    index = Math.floor(Math.random() * 1);
+
+    remove()
+
+    const element = chroniques[index];
+
+    element.content.style.display = "block";
+
+    // random position for chroniques 
+
+    positionRandom()
+    
+    element.content.style.top = t;
+    element.content.style.right = y;
+    element.content.style.bottom = b;
+    element.content.style.left = x;
+
+})
+
+    //Display chroniques archives
+
+chroniques.map(function(element){
+
+    divChroniques = document.getElementById(element.name);
+    console.log(divChroniques);
+    divChroniques.addEventListener('click', function(){
+
+        remove()
+        element.content.style.display = "block";
+
+    })
 })
 
 
@@ -639,7 +714,7 @@ moon.addEventListener('click', function(){
 
     //Yellow Hover
 
-        //Projects Hover
+        //Function Hover
     yellowHoverArray = []
     var yellowHoverfunc = function(myElement) {
         yellowHoverArray.push(
@@ -654,30 +729,20 @@ moon.addEventListener('click', function(){
         )
     }
 
+        //Projects Hover
     theProjects.forEach(function(element){
         yellowHoverfunc(document.getElementById(element.name+'2'))
     })
 
         //Videos Hover
-    yellowHoverArrayTwo = []
-    var yellowHoverfunc = function(myElement) {
-        yellowHoverArrayTwo.push(
-            myElement.addEventListener("mouseenter", function(){
-                    myElement.style.color = "#ffff00"; 
-                })
-        )
-        yellowHoverArrayTwo.push(
-            myElement.addEventListener("mouseleave", function(){
-                myElement.style.color = "#ffffff"; 
-            })
-        )
-    }
-
     theVideoProjects.forEach(function(element){
         yellowHoverfunc(document.getElementById(element.name+'2'))
     })
 
-
+        //Chroniques Hover
+    chroniques.forEach(function(element){
+        yellowHoverfunc(document.getElementById(element.name))
+    })
 
 
 })
@@ -889,6 +954,104 @@ placeSix.innerHTML = `
     <a href="${allMedia.links.six_place}" target="blank">Cine Nova</a>
     <img class="curseur" src="./assets/brand/curseur.png">
 `
+
+
+//HTML Template for Chroniques
+
+firstChronique.innerHTML = `
+<div class="grid">
+
+    <img src=${allMedia.chroniques_images.first_c}>
+
+    <div class="project-content chroniques-content">
+        <h6 class='title-project'>Free, White and 21</h6>
+        <h6 class='title-project'>Howardena Pindell 1980</h6>
+        <p>Chronique du 2 février 2021 pour Radio Campus Bruxelles</p>
+        <p>
+            Lorsque les salles de cinéma ont fermée leurs portes pour plusieurs semaines lors
+            du premier con nement, les spectateurs et spectatrices avides d’images et
+            d’histoires comme nous, se sont dans un premier temps retrouvé·es totalement
+            démuni·es. Comment faire pour retrouver sa dose, ce besoin absolu, cette
+            sensation délicate qui nous parcourent le corps lorsque les lumières s’éteignent et
+            qu’on s’apprête a embarquer dans un univers où l’on peut autant tomber dans le
+            vide de l’espace que braquer une banque ? Eh bien, on aura pas du attendre bien
+            longtemps. Puisque nous ne pouvions plus aller au cinéma, le cinéma est venu
+            jusqu’à nous. Et plutôt dix fois qu’une. Les initiatives of cielles et les autres pas tout
+            à fait vraiment légale se sont multipliées. De la cinémathèque royale aux groupes
+            Facebook au nom les plus obscures, il y a eu de quoi et il y a encore de quoi,
+            satisfaire les cinéphiles les plus curieuses et curieux d’entre nous.
+        </p>
+
+        <p>
+            Parmi les différents initiatives, le groupe Facebook la loupe nous a rapidement fait
+            de l’oeil. Malle aux trésors et refuge pour lms devenus introuvables, en quelques
+            mois, se se sont plus de 13 000 personnes qui ont rejoins le groupe et qui
+            quotidiennement partage des chiers de lms en tout genre. A une condition : que
+            ceux-ci ne soit pas disponible ailleurs, en vidéo à la demande, en dvd ou lors de
+            projections en salle. De cette façon, le partage de lms ne se place pas en
+            opposition aux droits des artistes a vivre de leur oeuvres mais cherche à faire
+            connaitre et circuler les lms pour que ceux-ci ne tombent pas dans l’oubli ou ne
+            disparaissent entièrement. Une archive 2.0 donc, qui ne repose pas sur un lieu xe
+            mais qui se déploie sur des milliers de disques durs répartis un peu partout.
+        </p>
+
+        <p>
+            Nous avons ainsi saisi l’occasion de cette chronique, pour vous proposer un lm
+            que nous avons aussi partager sur la loupe et pour lequel nous avons fait des
+            sous-titres en français fait maison qui jusque là n’existait pas. 
+        </p>
+
+        <p>
+            <b>Free, white and 21</b> qui est donc le titre de cette oeuvre réalisée par Howardena
+            Pindell en 1980 est aussi une phrase ancrée dans l’histoire populaire américaine
+            depuis au moins 1828. A l’époque, la loi qui réglemente le droit de vote vient d’être
+            modi ée. Il ne faut désormais plus être propriétaire foncier pour pouvoir voter mais
+            « simplement » être libre, blanc·che et avoir 21 ans. L’esclavage est encore
+            pratiquée dans de nombreux états, la ségrégation est présente partout et cette
+            phrase devient alors l’expression emblématique pour parler de ceux et celle pour
+            qui « tout est possible » et que rien ne pourra arrêter. Cent ans plus tard,
+            l’expression perdure et se retrouve dans de nombreux lms hollywoodiens 
+            entre lesannées ’20 et ’40 et y est particulièrement utilisé par les femmes blanches comme
+            un argument qui proclament tant leurs indépendances que leurs privilèges
+        </p>
+
+        <p>
+            Nous sommes en 1979 à New York quand Horwardena Pindell, alors conservatrice
+            au MOMA (le musée d’art moderne de New York) s’empare de cette phrase et
+            réalise sa toute première oeuvre de 12 minutes seule dans son appartement, après
+            avoir vécu un terrible accident de voiture lui causant une perte de mémoire
+            partielle. Impassible, elle y fait un compte rendu, face caméra, du racisme auquel
+            elle a été confrontée en tant que femme noire en Amérique dès son plus jeune âge
+            jusque dans son travail dans le monde de l’art et avec des féministes blanches. La
+            vidéo s’ouvre sur le visage d’une femme blanche incarnée par l’artiste, portant une
+            perruque blonde, ressemblant aux personnages féminins de ces lms
+            hollywoodiens des années 40, et qui tout au long de la vidéo revient ponctuer
+            certaines des expériences racontées par Pindell en décrédibilisant son récit. « Vous
+            devez vraiment être paranoïaque. Votre art n'est pas vraiment politique non plus. »
+        </p>
+
+        <p>
+            À la n des années 1980, Free White and 21 se met à circuler grâce au bouche à
+            oreille et est principalement diffusé dans les universités et les milieux militants. Ceci
+            dit, à l’époque, elle fut le sujet de nombreuses critiques, dont de nombreux artistes
+            blanc·ches considérant que les histoires était exagérées et le propos déplacé. Pour
+            nous, ces images d’Howardena Pindell sont aussi importantes aujourd’hui qu’hier
+            et si elles ont fait un pas vers vos écran grâce aux inépuisables archives du web, à
+            vous désormais de vous emparer et, si comme nous, vous l’estimez nécessaire, de
+            les faire circuler et d’en parler.
+        </p>
+
+        <p>Free White et 21 est disponible dès maintenant sur notre page viméo.</p>
+        <p>Bon film!</p>
+
+    </<div>
+
+</div>
+
+`
+
+
+
 
 // Remove videos after playing
 const allVideos = document.getElementsByTagName('video');
