@@ -721,10 +721,10 @@ video:hover{
     }
 
     .language{
-        font-size: 15px;
+        font-size: 14px;
         position: fixed;
         left: 0px;
-        bottom: 29px;
+        bottom: 22px;
         z-index: 1;
     } 
 
@@ -760,7 +760,7 @@ video:hover{
 
     .place{
         position: relative;
-        width: 45%;
+        width: 47%;
         padding-bottom: 40px;
     }
 
