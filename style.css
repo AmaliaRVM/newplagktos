@@ -648,9 +648,9 @@ video:hover{
         font-size: var(--type-body-medium);
     }
 
-    #contact-container{
+    /* #contact-container{
         padding-bottom: 20px;
-    }
+    } */
 
     .cela{
         position: relative;
@@ -724,7 +724,7 @@ video:hover{
         font-size: 14px;
         position: fixed;
         left: 0px;
-        bottom: 22px;
+        bottom: 20px;
         z-index: 1;
     } 
 
