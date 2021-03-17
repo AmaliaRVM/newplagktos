@@ -505,7 +505,7 @@ video:hover{
 
 /* Responsive Style */
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
 
     body{
         background-image: url('./assets/brand/bleu_2.jpg');
@@ -750,7 +750,9 @@ video:hover{
 
     .video-container{
         width: 100%;
+        height: fit-content;
         margin:0;
+        margin-top:20px;
     } 
 
     /* Floating screen */
