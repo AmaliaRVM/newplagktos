@@ -1,7 +1,7 @@
 //Global variables 
 
     //Logo variable
-const logoName = document.getElementById('logo-name');
+    const logoName = document.getElementById('logo-name');
 
     //Project variables
 const projects = document.getElementById("projects");
@@ -39,6 +39,7 @@ const iciContainerOne = document.getElementById('ici-container-one');
 const iciContainerTwo = document.getElementById('ici-container-two');
 
 const containerLa = document.getElementById('container-la');
+const containerIciEtLa = document.getElementById('ici-et-la');
 
 const placeOne = document.getElementById('place-container-one');
 const placeTwo = document.getElementById('place-container-two');
@@ -57,7 +58,7 @@ const fourthVideo = document.getElementById('fourth-video');
 const fifthVideo = document.getElementById('fifth-video');
 const sixVideo = document.getElementById('six-video');
 
-   //Chroniques
+    //Chroniques
 const randomChroniques = document.getElementById('random-chroniques');
 
 const firstChronique = document.getElementById('first-chronique');
@@ -66,14 +67,13 @@ const firstChronique = document.getElementById('first-chronique');
 const screenContainer = document.getElementById('screen-project');
 const ecranFlottant = document.getElementById('ecran-flottant');
 
+    //All main-containers
 const divMainContainer = document.getElementsByClassName('main-container');
 
-    //Responsive Screen
+    //Responsive screen
 const goBack = document.getElementById('go-back-link');
 const removeSection = document.querySelector('section');
 const removeLanguage = document.querySelector('.language');
-
-
 
 //All Data 
 
@@ -133,7 +133,7 @@ let theProjects = [
         "content": firstProject,
     },
     {
-        "name": "peripheral cities",
+        "name": "periphery",
         "content": secondProject,
     },
     {
@@ -163,7 +163,7 @@ let theVideoProjects = [
         "content": thirdVideoProject,
     },
     {
-        "name": "flames",
+        "name": "flammes",
         "content": fourthVideoProject,
     }
 ]
@@ -235,7 +235,6 @@ const chroniques = [
 ]
 
 
-
 //Logo Name
 
 logoName.addEventListener('click', function(){
@@ -265,14 +264,14 @@ thirdWord.innerHTML = `
 <span id='${newNames[2].name+"1"}'>${newNames[2].name}</span>
 ` 
 
-// HTML Template for archive words, videos and chroniques 
+// HTML Template for archive words, videos and chroniques
     
 archiveListProjects.innerHTML = `
 
 ${theProjects.map(function(element){
+    
     return `
     <span class="projects-hover" id="${element.name+"2"}">${element.name}</span>
-
     `
 }).join('')}
 `
@@ -296,7 +295,8 @@ ${chroniques.map(function(element){
     `
 }).join('')}
 
-`
+` 
+
 
 // Display archive container
 
@@ -305,7 +305,7 @@ archives.addEventListener('click', function(){
     remove()
 
     containerList.style.display = "block";
- 
+
 })
 
 
@@ -347,19 +347,19 @@ iciContainerTwo.innerHTML = `
     <span id='${newPlaces[1].name}'>here</span>
 `
 
-// Random screen position
+// Random screen position function
 
 function positionRandom () {
+    console.log(window.innerHeight)
+    console.log(window.innerWidth)
     
-    const heightFrame = window.innerHeight - 653;
-    const widthFrame = window.innerWidth - 1145;
-    console.log(widthFrame)
-    t = Math.round(Math.random() * heightFrame) + 60 + "px";
-    b = Math.round(Math.random() * heightFrame) + "px";
-    x = Math.round(Math.random() * widthFrame) + 120 + "px"
-    y = Math.round(Math.random() * widthFrame) + "px";
-    
-    console.log(t, b, x, y)
+    delta = 40;
+    ydim = 700;
+    xdim = 1000;
+    vpos = Math.random()*(window.innerHeight-delta-ydim-delta) + delta;
+    hpos = Math.random()*(window.innerWidth-delta-xdim-delta) + delta;
+
+    console.log(vpos, hpos)
 }
 
 
@@ -369,7 +369,9 @@ function remove () {
     
     theProjects.forEach(name => {
         name.content.style.display = "none"
+        name.content.style.transform = "translate3d(0,0,0)";
     })
+
 
     ceciVideos.forEach(name => {
         name.content.style.display = "none"
@@ -395,7 +397,14 @@ function remove () {
 
     containerList.style.display = "none"
 
+    Array.from(allVideos).forEach(function(item){
+        item.pause()
+    })
+    
+
 }
+
+
 
 function removeMedia () {
 
@@ -408,13 +417,21 @@ function removeMedia () {
     })
 
     ecranFlottant.style.display = "none"
-}
 
+    theVideoProjects.forEach(name => {
+        name.content.style.display = "none"
+    })
+
+    Array.from(allVideos).forEach(function(item){
+        item.pause()
+    })
+}
 
 // For theProject List
 function mappingProjects(element, myint){
-    console.log(myint)
+    
     const divProject = document.getElementById(element.name+myint);
+    
     divProject.addEventListener('click', function(){
 
         remove()
@@ -425,10 +442,9 @@ function mappingProjects(element, myint){
         
         positionRandom()
         
-        element.content.style.top = t;
-        element.content.style.right = y;
-        element.content.style.bottom = b;
-        element.content.style.left = x;
+        element.content.style.top = vpos+"px"; 
+        element.content.style.right = hpos+"px";
+       
 
     }) 
 
@@ -445,25 +461,31 @@ newNames.map(function(x2) {return mappingProjects(x2, "1") })
 function mappingVideoProjects(element, myint){
     
     const divProject = document.getElementById(element.name+myint);
+    
     divProject.addEventListener('click', function(){
 
         remove()
 
         element.content.style.display = "block";
+        
+        const sound = element.content.getElementsByTagName('video')[0]
+
+        sound.play()
+
+        
+        
 
         // random position numbers for the project container position
         
         positionRandom()
-        console.log("hello", x,y,t,b)
 
-        element.content.style.top = t;
-        element.content.style.right = y;
-        element.content.style.bottom = b;
-        element.content.style.left = x;
+        element.content.style.top = vpos+"px"; 
+        element.content.style.right = hpos+"px";
 
     }) 
 
 }
+
 
 // Display random video projects words
 
@@ -494,7 +516,6 @@ newPlaces.map(function(element){
 
         }
 
-        
     })
 
 })
@@ -509,16 +530,6 @@ containerLa.addEventListener('click', function(){
 
     removeMedia()
 
-    if(window.screen.width < 1025){
-
-        document.body.scrollTop = document.body.scrollHeight;
-        document.documentElement.scrollTop = document.documentElement.scrollHeight;
-
-        removeSection.style.display = 'none';
-        goBack.style.display = 'block';
-        removeLanguage.style.display = 'none';
-
-    }
 })
 
 
@@ -534,14 +545,18 @@ randomCeci.addEventListener('click', function(){
 
     element.content.style.display = 'block';
 
+    const sound = element.content.getElementsByTagName('video')[0]
+    sound.play()
+    
+
     // random position for Ceci videos
 
     positionRandom()
     
-    element.content.style.top = t;
-    element.content.style.right = y;
-    element.content.style.bottom = b;
-    element.content.style.left = x;
+    element.content.style.top = vpos+"px"; 
+    element.content.style.right = hpos+"px";
+       
+    
     
 })
 
@@ -561,27 +576,24 @@ randomChroniques.addEventListener('click', function(){
 
     positionRandom()
     
-    element.content.style.top = t;
-    element.content.style.right = y;
-    element.content.style.bottom = b;
-    element.content.style.left = x;
-
+    element.content.style.top = vpos+"px"; 
+    element.content.style.right = hpos+"px";
+       
 })
 
-    //Display chroniques archive
+    //Display chroniques archives
 
-    chroniques.map(function(element){
+chroniques.map(function(element){
 
-        divChroniques = document.getElementById(element.name);
-        console.log(divChroniques);
-        divChroniques.addEventListener('click', function(){
-            
-            remove()
+    divChroniques = document.getElementById(element.name);
+    
+    divChroniques.addEventListener('click', function(){
 
-            element.content.style.display = "block";
+        remove()
+        element.content.style.display = "block";
 
-        })
     })
+})
 
 
 // Display ecran flottant
@@ -589,104 +601,110 @@ randomChroniques.addEventListener('click', function(){
 screenContainer.addEventListener('click', function(){
     remove()
     ecranFlottant.style.display = "block";
-
+    
     if (window.screen.width < 1025){
         goBack.style.display = "block";
     }
-    
 })
 
 
 //Make all -div class main-container- a draggable element
 
-Array.from(divMainContainer).forEach(function(item){
+function dragElements () {
+
+    Array.from(divMainContainer).forEach(function(item){
     
-    let active = false;
-    let currentX;
-    let currentY;
-    let initialX;
-    let initialY;
-    let xOffset = 0;
-    let yOffset = 0;
-
-    /* item.addEventListener("touchstart", dragStart, false);
-    item.addEventListener("touchend", dragEnd, false);
-    item.addEventListener("touchmove", drag, false); */
-
-    item.addEventListener("mousedown", dragStart, false);
-    item.addEventListener("mouseup", dragEnd, false);
-    item.addEventListener("mousemove", drag, false);
-
-    //Initialiazing the Drag
+        let active = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+        let xOffset = 0;
+        let yOffset = 0;
     
-    function dragStart (e) {
+        /* item.addEventListener("touchstart", dragStart, false);
+        item.addEventListener("touchend", dragEnd, false);
+        item.addEventListener("touchmove", drag, false); */
+    
+        item.addEventListener("mousedown", dragStart, false);
+        item.addEventListener("mouseup", dragEnd, false);
+        item.addEventListener("mousemove", drag, false);
+    
+        //Initialiazing the Drag
         
-        if(e.type === 'mousedown') {
-            /* initialX = e.touches[0].clientX - xOffset;
-            initialY = e.touches[0].clientY - yOffset; */
-            initialX = e.clientX - xOffset;
-            initialY = e.clientY - yOffset;
+        function dragStart (e) {
             
-        } else {
-            initialX = e.clientX - xOffset;
-            initialY = e.clientY - yOffset;
-        }
-        
-        active = true;
-
-    }
-    
-    function drag(e) {
-
-        if (active) {
-            
-            e.preventDefault();
-            
-            if (e.type === "mousemove") {
-                /* currentX = e.touches[0].clientX - initialX;
-                currentY = e.touches[0].clientY - initialY; */
-                currentX = e.clientX - initialX;
-                currentY = e.clientY - initialY;
-            } else {
-                currentX = e.clientX - initialX;
-                currentY = e.clientY - initialY;
+            if(e.type === 'mousedown') {
+                /* initialX = e.touches[0].clientX - xOffset;
+                initialY = e.touches[0].clientY - yOffset;  */
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset; 
+                
+            /* } else {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset; */
             }
-
-            xOffset = currentX;
-            yOffset = currentY;
-    
-            setTranslate(currentX, currentY, item);
             
+            active = true;
+    
         }
+        
+        function drag(e) {
+    
+            if (active) {
+                
+                e.preventDefault();
+                
+                if (e.type === "mousemove") {
+                    /* currentX = e.touches[0].clientX - initialX;
+                    currentY = e.touches[0].clientY - initialY;  */
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+                } /* else {
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+                }
+     */
+                xOffset = currentX;
+                yOffset = currentY;
+        
+                setTranslate(currentX, currentY, item);
+                
+            }
+    
+        }
+    
+        function setTranslate(xPos, yPos, el) {
+    
+            el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+        }
+    
+        function dragEnd(e) {
+    
+            initialX = currentX;
+            initialY = currentY;
+    
+            active = false;
+        }
+    
+    })
 
-    }
+}
 
-    function setTranslate(xPos, yPos, el) {
-
-        el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-    }
-
-    function dragEnd(e) {
-
-        initialX = currentX;
-        initialY = currentY;
-
-        active = false;
-    }
-
-})
+dragElements()
 
 
-////Dark mode
+//Dark mode
 
 const allSpan = document.getElementsByTagName('span');
-const allLinks = document.getElementsByTagName('a');
 const supOne = document.getElementById('sup-one');
 const supTwo =document.getElementById('sup-two');
+const allLinks = document.getElementsByTagName('a');
 const moon = document.getElementById('moon');
 const sun = document.getElementById('sun');
 const copyrightText = document.getElementById('copyright-text');
 const curseur = document.getElementsByClassName('curseur');
+
 
     // To dark mode
 moon.addEventListener('click', function(){
@@ -710,6 +728,8 @@ moon.addEventListener('click', function(){
         item.src = './assets/brand/curseur_nuit.png';
     })
 
+
+
     supOne.style.color = "#ffffff";
     supTwo.style.color = "#ffffff";
     copyrightText.style.backgroundImage = "url('./assets/brand/bleu_2.jpg')";
@@ -732,6 +752,7 @@ moon.addEventListener('click', function(){
             })
         )
     }
+
         //Projects Hover
     theProjects.forEach(function(element){
         yellowHoverfunc(document.getElementById(element.name+'2'))
@@ -746,7 +767,6 @@ moon.addEventListener('click', function(){
     chroniques.forEach(function(element){
         yellowHoverfunc(document.getElementById(element.name))
     })
-    
 
 
 })
@@ -781,10 +801,10 @@ firstProject.innerHTML = `
             une séance de navigation
         </h6>
         <p>
-            Une invitation à traverser l’Atlantique, à arrêter son regard sur le brouillard matinal, à
-            s’immerger sous l’eau et dans les images qu’elle projette. Voiles et films en pellicule :
-            une séance de navigation est une programmation pensée en collaboration avec
-            Christophe Piette dans le cadre du Nazcas Festival.
+            An invitation to cross the Atlantic, to stop and look at the morning fog, to immerse
+            yourself underwater and in the images it projects. Voiles et films en pellicule: a
+            navigation session is a program designed in collaboration with Christophe Piette as part
+            of the Nazcas Festival.
         </p>
 
         <ul>
@@ -810,14 +830,14 @@ secondProject.innerHTML = `
     <img src=${allMedia.images.second_i}>
 
     <div class="project-content">
-        <h6 class='title-project'>La périphérie</h6>
+        <h6 class='title-project'>periphery</h6>
         <p>
-            Une boîte de nuit fermée depuis des années ré-ouverte pour une nuit. Un photographe
-            qui rencontre les habitant·e·s de maisons aperçues depuis le train. Une aciérie de la
-            zone industrielle de Détroit qui finit par ressembler à un mirage à force de l’observer.<br>
-            Pour clôturer le festival Periferia à Drogenbos, deux court-métrages et un ciné-concert
-            avec l’artiste sonore Pak Yan Lau. Une programmation pour penser et observer les
-            périphéries en décalant notre regard.
+            A nightclub closed for years reopened for one night. A photographer who meets the
+            inhabitants of houses seen from the train. A steel mill in the Detroit industrial area that
+            ends up looking like a mirage by observing it.
+            To close the Periferia festival in Drogenbos, two short films and a film concert with
+            sound artist Pak Yan Lau. A program to think and observe peripheries by shifting our
+            gaze.
         </p>
 
         <ul>
@@ -838,13 +858,12 @@ thirdProject.innerHTML = `
     <img src=${allMedia.images.third_i}>
 
     <div class="project-content">
-        <h6 class='title-project'>Le sport</h6>
+        <h6 class='title-project'>sport</h6>
         <p>
-            Dans le cadre du festival Ear you Are, autour de la création sonore et radiophonique,
-            le grand écran du Nova reprend du service et défie un double duo de musicien·nes pour
-            une expérience de live scoring sur fond d’images de sport. Ça glisse, ça saute, ça
-            frappe, ça plonge. Écouter, ou regarder ? Ce soir, les rythmes se répondent et vous
-            invitent dans le jeu.
+            As part of the Ear you Are festival around sound art and radio creation,
+            the Nova’s big screen returns to service and challenges a double duo of musicians for a
+            live scoring experience on a mashup of sports images. They slide, jump, hit, dive. Listen
+            or watch ? Tonight, the rhythms meet and invite you into the game.
         </p>
 
         <p class="copyrightphoto">© Maxime Taillez, Julien Hayard</p>
@@ -881,20 +900,20 @@ fourthProject.innerHTML = `
 //HTML Template Projects Videos
 
 firstVideoProject.innerHTML = `
-    <video src=${allMedia.project_videos.first_vp} preload="auto" autoplay="true" muted></video>
+    <video src=${allMedia.project_videos.first_vp} type="video/mp4" preload="auto" autoplay="false" ></video>
     <p class="copyright-video">Asparagus - Suzan Pitt <i>1979</i></p>
 `
 
 secondVideoProject.innerHTML = `
-    <video src=${allMedia.project_videos.second_vp} preload="auto" autoplay="true" muted></video>
+    <video src=${allMedia.project_videos.second_vp} type="video/mp4" preload="auto" autoplay="false" ></video>
     <p class="copyright-video">Salomé - Téo Hernandez <i>1976</i></p>
 `
 thirdVideoProject.innerHTML = `
-    <video src=${allMedia.project_videos.third_vp} preload="auto" autoplay="true" muted></video>
+    <video src=${allMedia.project_videos.third_vp} type="video/mp4" preload="auto" autoplay="false" ></video>
     <p class="copyright-video">Brouillard Passage 14 - Alexandre Larose <i>2014</i></p>
 `
 fourthVideoProject.innerHTML = `
-    <video src=${allMedia.project_videos.fourth_vp} preload="auto" autoplay="true" muted></video>
+    <video src=${allMedia.project_videos.fourth_vp} type="video/mp4" preload="auto" autoplay="false" ></video>
     <p class="copyright-video">Born in Flames - Lizzie Borden <i>1983</i></p>
 `
 
@@ -902,28 +921,28 @@ fourthVideoProject.innerHTML = `
 //HTML Template for Ceci Videos
 
 firstVideo.innerHTML = `
-    <video src=${allMedia.ceci_videos.first_v} preload="auto" autoplay="true" muted></video>
+    <video src=${allMedia.ceci_videos.first_v} type="video/mp4" preload="auto" autoplay="false"></video>
     <p class="copyright-video">Breakaway - Bruce Conner <i>1966</i></p>
 `
 
 secondVideo.innerHTML = `
-    <video src=${allMedia.ceci_videos.second_v} preload="auto" autoplay="true" muted></video>
+    <video src=${allMedia.ceci_videos.second_v} type="video/mp4" preload="auto" autoplay="false"></video>
     <p class="copyright-video">Gutrug N°1 - Werner Nekes <i>1894</i></p>
 `
 thirdVideo.innerHTML = `
-    <video src=${allMedia.ceci_videos.third_v} preload="auto" autoplay="true" muted></video>
+    <video src=${allMedia.ceci_videos.third_v} type="video/mp4" preload="auto" autoplay="false"></video>
     <p class="copyright-video">Ink in Milk - Gernot Wieland <i>2018</i></p>
 `
 fourthVideo.innerHTML = `
-    <video src=${allMedia.ceci_videos.fourth_v} preload="auto" autoplay="true" muted></video>
+    <video src=${allMedia.ceci_videos.fourth_v} type="video/mp4" preload="auto" autoplay="false"></video>
     <p class="copyright-video">Kika opowiesci o czlowieku - Bogdan Dziworski <i>1983</i></p>
 `
 fifthVideo.innerHTML = `
-    <video src=${allMedia.ceci_videos.fifth_v} preload="auto" autoplay="true" muted></video>
+    <video src=${allMedia.ceci_videos.fifth_v} type="video/mp4" preload="auto" autoplay="false"></video>
     <p class="copyright-video">Ofrenda - Claudio Caldini <i>1978</i></p>
 `
 sixVideo.innerHTML = `
-    <video src=${allMedia.ceci_videos.six_v} preload="auto" autoplay="true" muted></video>
+    <video src=${allMedia.ceci_videos.six_v} type="video/mp4" preload="auto" autoplay="false"></video>
     <p class="copyright-video">The Girl Chewing Gum - John Smith <i>1976</i></p>
 `
 
@@ -958,7 +977,6 @@ placeSix.innerHTML = `
     <a href="${allMedia.links.six_place}" target="blank">Cine Nova</a>
     <img class="curseur" src="./assets/brand/curseur.png">
 `
-
 
 
 //HTML Template for Chroniques
@@ -1056,12 +1074,6 @@ firstChronique.innerHTML = `
 `
 
 
-
-
-
-
-
-
 // Remove videos after playing
 const allVideos = document.getElementsByTagName('video');
 const videoContainer =document.getElementsByClassName('video-container');
@@ -1071,7 +1083,7 @@ Array.from(videoContainer).forEach(function(item){
 })
 
 Array.from(allVideos).forEach(function(item){
-    
+
     item.onended = function(){
         item.style.display = "none";
         
@@ -1085,36 +1097,76 @@ Array.from(allVideos).forEach(function(item){
 
 // Responsive Screen
 
-if (window.screen.width < 1025) {
+    //Alert Message
+    const windowSize = window.matchMedia("(max-width: 1020px)");
 
-    const responsivePosition = positionRandom;
-    positionRandom = function (){
-        t = 20 + "px";
-        b = 20 + "px";
-        x = 0;
-        y = 0;
+    function windowResponsive () {
+        return  ( 'ontouchstart' in window ) ||  
+                ( navigator.maxTouchPoints > 0 ) || 
+                ( navigator.msMaxTouchPoints > 0 );
+    } 
 
-       /*  document.body.scrollTop = document.body.scrollHeight;
-        document.documentElement.scrollTop = document.documentElement.scrollHeight;  */
+    if(windowResponsive() == false) {
+        function move (){
+            if(windowSize.matches){
+                alert("This website needs space to express itself. For an optimal user experience, do not hesitate to enlarge the window.");
+            }
+        }
+    }
+    
+    windowSize.addListener(move);
+    
+
+
+if (window.screen.width < 600) {
+
+    /* Container ici et la */
+    containerIciEtLa.addEventListener('click', function(){
+
+        remove()
 
         goBack.style.display = 'block'; 
 
-    }
+        thePlaces.forEach(element => {
+            element.content.style.display = "block"
+        }) 
 
+        Array.from(curseur).forEach(function(item){
+            console.log(item)
+            item.src = './assets/brand/curseur_nuit.png';
+        })
+    })
+
+    /* Overwriting function for projects random  */
+    const responsivePosition = positionRandom;
+
+    positionRandom = function (){
+        vpos = 0 + "px";
+        hpos = 0 + "px";
+
+        /* document.body.scrollTop = document.body.scrollHeight;
+        document.documentElement.scrollTop = document.documentElement.scrollHeight; */ 
+        goBack.style.display = 'block'; 
+    }
+    
     responsivePosition()
 
-    const responsiveRemove = remove;
+    /* Overwriting function for remove */
+    const responsiveRemove = remove; 
     remove = function () {
 
-        console.log(removeSection);
         removeSection.style.display = 'none';
- 
+
         removeLanguage.style.display = 'none';
         
     }
 
     responsiveRemove() 
+    console.log(responsiveRemove)
 
+
+
+    /* Go back button */
     goBack.addEventListener('click', function(){
 
         theProjects.forEach(name => {
@@ -1133,15 +1185,22 @@ if (window.screen.width < 1025) {
     
         theVideoProjects.forEach(name => {
             name.content.style.display = "none"
-        })
+        }) 
         
         chroniques.forEach(name => {
             name.content.style.display = "none"
+        }) 
+
+        Array.from(allVideos).forEach(function(item){
+            item.pause()
         })
 
         removeSection.style.display = 'block';
-        goBack.style.display = 'none'; 
+        goBack.style.display = 'none';
         removeLanguage.style.display = 'block'; 
+
+        
+
     })
 
     const follow = document.getElementById('follow');
@@ -1162,13 +1221,16 @@ if (window.screen.width < 1025) {
 
     Array.from(place).forEach(item => {
 
-        item.style.left = Math.round(Math.random() * 186)+ "px";
+        item.style.left = Math.round(Math.random() * 166)+ "px";
         item.style.bottom = Math.round(Math.random() * 78)+ "px";
-        item.style.top = '0px';
+        item.style.top = 50 + "px"; 
 
-        console.log('in')
     })
 
 } 
+
+
+    
+
 
 

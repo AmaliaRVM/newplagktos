@@ -265,6 +265,7 @@ section{
 .main-container {
     display: none;
     width: 1000px;
+    height: fit-content;
     cursor: grabbing;
     position: absolute; 
 }
@@ -504,7 +505,7 @@ video:hover{
 
 /* Responsive Style */
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
 
     body{
         background-image: url('./assets/brand/bleu_2.jpg');
@@ -552,6 +553,7 @@ video:hover{
         position: fixed;
         left: 28px;
         top: 80px;
+        right: 10px;
         /* margin: 80px 0px 0px 28px ; */
     }
 
@@ -559,12 +561,11 @@ video:hover{
         width: 80%;
         display: flex;
         justify-content: space-between;
-        margin: 0px 28px;
+        margin: 0px;
     }
 
     h1{
-        position: fixed;
-        left: 28px;
+        padding-left: 22px; 
     }
 
     .about-plagktos{
@@ -623,6 +624,7 @@ video:hover{
     .main-container{
         width: 80%;
         margin-left: 28px;
+        margin-top: 60px;
         /* margin: 25px auto 20px auto; */
         position: relative;
     } 
@@ -724,7 +726,7 @@ video:hover{
         font-size: 14px;
         position: fixed;
         left: 0px;
-        bottom: 18px;
+        bottom: 25px;
         z-index: 1;
     } 
 
@@ -776,15 +778,6 @@ video:hover{
 
 @media screen and (max-width: 340px) {
 
-    header{
-        margin: 0px 14px;
-    }
-
-    h1{
-        position: fixed;
-        left: 28px;
-    }
-    
     section{
         width: 90%;
         /* osition: relative;
@@ -792,6 +785,10 @@ video:hover{
         top: 0;
         margin: 50px auto 5px auto; */
     } 
+
+    .language{
+        bottom: 18px;
+    }
 
 } 
 

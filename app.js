@@ -305,7 +305,7 @@ archives.addEventListener('click', function(){
     remove()
 
     containerList.style.display = "block";
- 
+
 })
 
 
@@ -350,16 +350,16 @@ iciContainerTwo.innerHTML = `
 // Random screen position function
 
 function positionRandom () {
+    console.log(window.innerHeight)
+    console.log(window.innerWidth)
     
-    const heightFrame = window.innerHeight - 653;
-    const widthFrame = window.innerWidth - 1145;
-    console.log(widthFrame)
-    t = Math.round(Math.random() * heightFrame) + 60 + "px";
-    b = Math.round(Math.random() * heightFrame) + "px";
-    x = Math.round(Math.random() * widthFrame) + 120 + "px"
-    y = Math.round(Math.random() * widthFrame) + "px";
-    
-    console.log(t, b, x, y)
+    delta = 40;
+    ydim = 700;
+    xdim = 1000;
+    vpos = Math.random()*(window.innerHeight-delta-ydim-delta) + delta;
+    hpos = Math.random()*(window.innerWidth-delta-xdim-delta) + delta;
+
+    console.log(vpos, hpos)
 }
 
 
@@ -369,7 +369,9 @@ function remove () {
     
     theProjects.forEach(name => {
         name.content.style.display = "none"
+        name.content.style.transform = "translate3d(0,0,0)";
     })
+
 
     ceciVideos.forEach(name => {
         name.content.style.display = "none"
@@ -440,10 +442,9 @@ function mappingProjects(element, myint){
         
         positionRandom()
         
-        element.content.style.top = t;
-        element.content.style.right = y;
-        element.content.style.bottom = b;
-        element.content.style.left = x;
+        element.content.style.top = vpos+"px"; 
+        element.content.style.right = hpos+"px";
+       
 
     }) 
 
@@ -477,21 +478,14 @@ function mappingVideoProjects(element, myint){
         // random position numbers for the project container position
         
         positionRandom()
-        console.log("hello", x,y,t,b)
 
-        element.content.style.top = t;
-        element.content.style.right = y;
-        element.content.style.bottom = b;
-        element.content.style.left = x;
+        element.content.style.top = vpos+"px"; 
+        element.content.style.right = hpos+"px";
 
     }) 
 
 }
 
-/* const pauseVideo = document.getElementsByTagName('video');
-    Array.from(pauseVideo).forEach(function(item){
-        console.log(item);
-    }) */
 
 // Display random video projects words
 
@@ -559,10 +553,9 @@ randomCeci.addEventListener('click', function(){
 
     positionRandom()
     
-    element.content.style.top = t;
-    element.content.style.right = y;
-    element.content.style.bottom = b;
-    element.content.style.left = x;
+    element.content.style.top = vpos+"px"; 
+    element.content.style.right = hpos+"px";
+       
     
     
 })
@@ -583,11 +576,9 @@ randomChroniques.addEventListener('click', function(){
 
     positionRandom()
     
-    element.content.style.top = t;
-    element.content.style.right = y;
-    element.content.style.bottom = b;
-    element.content.style.left = x;
-
+    element.content.style.top = vpos+"px"; 
+    element.content.style.right = hpos+"px";
+       
 })
 
     //Display chroniques archives
@@ -631,9 +622,9 @@ function dragElements () {
         let xOffset = 0;
         let yOffset = 0;
     
-        item.addEventListener("touchstart", dragStart, false);
+        /* item.addEventListener("touchstart", dragStart, false);
         item.addEventListener("touchend", dragEnd, false);
-        item.addEventListener("touchmove", drag, false);
+        item.addEventListener("touchmove", drag, false); */
     
         item.addEventListener("mousedown", dragStart, false);
         item.addEventListener("mouseup", dragEnd, false);
@@ -643,15 +634,15 @@ function dragElements () {
         
         function dragStart (e) {
             
-            if(e.type === 'touchstart') {
-                initialX = e.touches[0].clientX - xOffset;
-                initialY = e.touches[0].clientY - yOffset; 
-                /* initialX = e.clientX - xOffset;
-                initialY = e.clientY - yOffset; */
-                
-            } else {
+            if(e.type === 'mousedown') {
+                /* initialX = e.touches[0].clientX - xOffset;
+                initialY = e.touches[0].clientY - yOffset;  */
                 initialX = e.clientX - xOffset;
-                initialY = e.clientY - yOffset;
+                initialY = e.clientY - yOffset; 
+                
+            /* } else {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset; */
             }
             
             active = true;
@@ -664,16 +655,16 @@ function dragElements () {
                 
                 e.preventDefault();
                 
-                if (e.type === "touchmove") {
-                    currentX = e.touches[0].clientX - initialX;
-                    currentY = e.touches[0].clientY - initialY; 
-                    /* currentX = e.clientX - initialX;
-                    currentY = e.clientY - initialY; */
-                } else {
+                if (e.type === "mousemove") {
+                    /* currentX = e.touches[0].clientX - initialX;
+                    currentY = e.touches[0].clientY - initialY;  */
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+                } /* else {
                     currentX = e.clientX - initialX;
                     currentY = e.clientY - initialY;
                 }
-    
+     */
                 xOffset = currentX;
                 yOffset = currentY;
         
@@ -1107,10 +1098,28 @@ Array.from(allVideos).forEach(function(item){
 
 // Responsive Screen
 
-    /* 
-    alert('This website needs space to express itself. For an optimal user experience, do not hesitate to enlarge the window.'); */
+    //Alert Message
+    const windowSize = window.matchMedia("(max-width: 1020px)");
 
-if (window.screen.width < 1025) {
+    function windowResponsive () {
+        return  ( 'ontouchstart' in window ) ||  
+                ( navigator.maxTouchPoints > 0 ) || 
+                ( navigator.msMaxTouchPoints > 0 );
+    } 
+
+    if(windowResponsive() == false) {
+        function move (){
+            if(windowSize.matches){
+                alert("This website needs space to express itself. For an optimal user experience, do not hesitate to enlarge the window.");
+            }
+        }
+    }
+    
+    windowSize.addListener(move);
+    
+
+
+if (window.screen.width < 600) {
 
     /* Container ici et la */
     containerIciEtLa.addEventListener('click', function(){
@@ -1133,10 +1142,8 @@ if (window.screen.width < 1025) {
     const responsivePosition = positionRandom;
 
     positionRandom = function (){
-        t = 20 + "px";
-        b = 20 + "px";
-        x = 0;
-        y = 0;
+        vpos = 0 + "px";
+        hpos = 0 + "px";
 
         /* document.body.scrollTop = document.body.scrollHeight;
         document.documentElement.scrollTop = document.documentElement.scrollHeight; */ 
@@ -1156,88 +1163,7 @@ if (window.screen.width < 1025) {
     }
 
     responsiveRemove() 
-
-    /* Overwriting function for Drag */
-    const dragStartResponsive = dragElements;
-    console.log(dragElements)
-    dragElements = function() {
-        Array.from(divMainContainer).forEach(function(item){
-    
-            let active = false;
-            let currentX;
-            let currentY;
-            let initialX;
-            let initialY;
-            let xOffset = 0;
-            let yOffset = 0;
-        
-            item.addEventListener("touchstart", dragStart, false);
-            item.addEventListener("touchend", dragEnd, false);
-            item.addEventListener("touchmove", drag, false);
-        
-            item.addEventListener("mousedown", dragStart, false);
-            item.addEventListener("mouseup", dragEnd, false);
-            item.addEventListener("mousemove", drag, false);
-        
-            //Initialiazing the Drag
-            
-            function dragStart (e) {
-                
-                if(e.type === 'mousedown') { 
-                    initialX = e.clientX - xOffset;
-                    initialY = e.clientY - yOffset;
-                    
-                } else {
-                    initialX = e.clientX - xOffset;
-                    initialY = e.clientY - yOffset;
-                }
-                
-                active = true;
-        
-            }
-            
-            function drag(e) {
-        
-                if (active) {
-                    
-                    e.preventDefault();
-                    
-                    if (e.type === "mousemove") {
-                        currentX = e.clientX - initialX;
-                        currentY = e.clientY - initialY;
-                    } else {
-                        currentX = e.clientX - initialX;
-                        currentY = e.clientY - initialY;
-                    }
-        
-                    xOffset = currentX;
-                    yOffset = currentY;
-            
-                    setTranslate(currentX, currentY, item);
-                    
-                }
-        
-            }
-        
-            function setTranslate(xPos, yPos, el) {
-        
-                el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-            }
-        
-            function dragEnd(e) {
-        
-                initialX = currentX;
-                initialY = currentY;
-        
-                active = false;
-            }
-        
-        })
-
-    }
-
-    dragStartResponsive(); 
-    console.log(dragStartResponsive)
+    console.log(responsiveRemove)
 
 
 
@@ -1301,7 +1227,6 @@ if (window.screen.width < 1025) {
         item.style.top = 50 + "px"; 
 
     })
-
 
 } 
 
