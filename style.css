@@ -14,7 +14,7 @@
 
     /* font size */
     --type-body-regular: 20px;
-    --type-body-medium: 14px;
+    --type-body-medium: 17px;
     --type-body-small: 12px;
 
     /* font color */
@@ -56,7 +56,7 @@ a{
 
 li{
     list-style: none;
-    font-size: var(--type-body-medium);
+    font-size: 14px;
 }
 
 span{
@@ -158,27 +158,28 @@ section{
 
 .chroniques-content {
     height: 520px;
-    padding-right: 10px;
+    padding-right: 20px;
 }
 
 /* Firefox */
 .scroller{
     overflow-y: scroll;
-    scrollbar-color: var(--link-main-color)  	#E0E0E0;
+    scrollbar-color: var(--link-main-color)  	#ffffff;
 }
 
 /* Scroll Bar for chrome */
 
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
     background: var(--link-main-color);
+    border-radius: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background:  	#E0E0E0;
+    background:  	#ffffff;
 }
 
 
@@ -236,6 +237,10 @@ section{
 }
 #ici-container-two span{
     font-size: var(--type-body-regular);
+}
+
+#ici-et-la{
+    display: none;
 }
 
 /* Random videos projects containers */
@@ -300,6 +305,21 @@ section{
 }
 
 /* Work places */
+
+.place-container{
+    display: inline;
+    text-decoration: none;
+    color: #000000;
+}
+.place-container span{
+    display: inline;
+}
+
+#et{
+    color: #000000;
+    text-decoration: none;
+}
+
 .place{
     display: none;
     position: absolute;
@@ -467,19 +487,24 @@ video:hover{
 #go-back-link{
     font-family: "lotaGrotesqueBold";
     display: none;
-    /* margin-right: 28px;
-    text-align: right; */
-    margin-right: 28px;
+    padding-top: 20px;
+    /* margin-right: 28px; */
+    /* position: fixed;
+    top: 30px;
+    right: -11px; */ 
+
+    /* font-size: 15px;
     position: fixed;
-    bottom: 20px;
-    right: 5px; 
+    bottom: 29px;
+    z-index: 1;
+    right: 5px; */
 
 
 }
 
 /* Responsive Style */
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 800px) {
 
     body{
         background-image: url('./assets/brand/bleu_2.jpg');
@@ -487,8 +512,11 @@ video:hover{
         margin: 0 auto;
         padding: 5px;
         overflow: scroll;
+        cursor: grab;
+        font-size: var(--type-body-medium);
 
         color: #ffffff;
+
     }
 
     span{
@@ -505,14 +533,79 @@ video:hover{
 
     h1{
         color: #ffffff;
+        letter-spacing: 0.5px;
+        padding-top: 10px;
+    }
+
+    p{
+        font-size: var(--type-body-medium);
     }
 
     section{
+        /* position: relative;
+        top: 20px;
+        width: 300px;
+        padding-top: 5%;
+        line-height: 130%; */
+
+        width: 330px;
         position: relative;
         left: 0;
         top: 0;
-        margin: 60px auto 5px auto;
+        margin: 80px 0px 0px 28px ;
     }
+
+    header{
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0px 28px;
+    }
+
+    .about-plagktos{
+        width: 95%;
+    }
+
+    .place-container{
+        display: none;
+    }
+
+    #container-la{
+        display: none;
+    }
+
+    #ici-et-la{
+        display: inline;
+    }
+
+    .about-plagktos span{
+        font-size: var(--type-body-medium);
+    }
+
+    #first-word span{
+        font-size: var(--type-body-medium);
+    }
+
+    #second-word span{
+        font-size: var(--type-body-medium);
+    }
+
+    #third-word span{
+        font-size: var(--type-body-medium);
+    }
+
+    #vproject-one span{
+        font-size: var(--type-body-medium);
+    }
+
+    #vproject-two span{
+        font-size: var(--type-body-medium);
+    }
+
+    #vproject-third span{
+        font-size: var(--type-body-medium);
+    }
+
 
     #archives{
         display: none;
@@ -524,9 +617,9 @@ video:hover{
 
     .main-container{
         width: 80%;
-        margin: 25px auto 20px auto;
+        margin-left: 28px;
+        /* margin: 25px auto 20px auto; */
         position: relative;
-
     } 
 
     .main-container img{
@@ -539,7 +632,7 @@ video:hover{
     }
 
     .project-content{
-        width: 80%;
+        width: 100%;
         margin: 0px;
     }
 
@@ -547,6 +640,7 @@ video:hover{
 
     #mail-contact{
         background-image: url('./assets/brand/bleu_2.jpg');
+        font-size: var(--type-body-medium);
     }
 
     #contact-container{
@@ -576,6 +670,7 @@ video:hover{
     .link-contact a{
         background-image: url('./assets/brand/bleu_2.jpg');
         color: #ffffff;
+        font-size: var(--type-body-medium);
     }
 
     .lc-french{
@@ -607,7 +702,11 @@ video:hover{
     }
     
     ::-webkit-scrollbar-track {
-        background:  	#E0E0E0;
+        background:  	#ffffff;
+    }
+
+    .scroller{
+        overflow-y: hidden;
     }
 
     /* Language */
@@ -617,8 +716,10 @@ video:hover{
     }
 
     .language{
-        position: relative;
-        margin: 30px 0 20px 28px;
+        font-size: 15px;
+        position: fixed;
+        bottom: 29px;
+        z-index: 1;
     } 
 
     .language a{
@@ -629,6 +730,8 @@ video:hover{
 
     .chroniques-content {
         width: 100%;
+        padding-right: 0px;
+        height: auto;
     }
 
     /* Videos */
@@ -651,12 +754,13 @@ video:hover{
 
     .place{
         position: relative;
-        width: 50%;
-        margin-bottom: 20px;
+        width: 45%;
+        padding-bottom: 40px;
     }
 
     .place a{
-        color: #ffff00;
+        color: #ffffff;
+        font-size: 15px;
     }
 
 
@@ -664,34 +768,24 @@ video:hover{
 
 /* Smaller screen */
 
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 340px) {
+
+    header{
+        margin: 0px 14px;
+    }
     
     section{
         width: 90%;
+        position: relative;
+        left: 0;
+        top: 0;
+        margin: 50px auto 5px auto;
     } 
 
-    header {
-        margin: 15px 0 0 10px;
-    }
-
     .language{
-        position: relative;
-        margin: 30px 0 20px 10px;
-    }
-    
-    #go-back-link{
-        font-family: "lotaGrotesqueBold";
-        display: none;
-        margin-right: 28px;
-        text-align: right; 
-        position: relative;
+        left: -4px;
     }
 
-    .project-content{
-        width: 100%;
-    }
-
-
-}
+} 
 
 
