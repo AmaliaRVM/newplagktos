@@ -467,14 +467,14 @@ function mappingVideoProjects(element, myint){
         remove()
 
         element.content.style.display = "block";
-        
-        const sound = element.content.getElementsByTagName('video')[0]
 
+        const sound = element.content.getElementsByTagName('video')[0]
+        sound.style.display = "block";
         sound.play()
 
+        const videoLoad = sound.readyState;
+        console.log(videoLoad)
         
-        
-
         // random position numbers for the project container position
         
         positionRandom()
@@ -546,8 +546,15 @@ randomCeci.addEventListener('click', function(){
     element.content.style.display = 'block';
 
     const sound = element.content.getElementsByTagName('video')[0]
-    sound.play()
     
+    sound.style.display = "block";
+    sound.play()
+
+    const videoLoad = sound.readyState;
+    console.log(videoLoad)
+
+    const test = sound.readyState;
+    console.log(test)
 
     // random position for Ceci videos
 
@@ -1087,6 +1094,7 @@ Array.from(allVideos).forEach(function(item){
 
     item.onended = function(){
         item.style.display = "none";
+        item.load();
         
         Array.from(videoContainer).forEach(function(element){
             
@@ -1098,7 +1106,7 @@ Array.from(allVideos).forEach(function(item){
 
 // Responsive Screen
 
-    //Alert Message
+    //Alert Message when moving screen Desktop
     const windowSize = window.matchMedia("(max-width: 1020px)");
 
     function windowResponsive () {
@@ -1118,7 +1126,7 @@ Array.from(allVideos).forEach(function(item){
     windowSize.addListener(move);
     
 
-
+    //Responsive Code
 if (window.screen.width < 600) {
 
     alert('This website needs space to express itself. For an optimal user experience, do not hesitate to enlarge the window.')
@@ -1203,6 +1211,7 @@ if (window.screen.width < 600) {
 
     })
 
+    /* Follow */
     const follow = document.getElementById('follow');
     follow.addEventListener('click', function(){
 
@@ -1216,6 +1225,7 @@ if (window.screen.width < 600) {
 
     })
 
+    /* Random Places */
     const place = document.getElementsByClassName('place');
     console.log(place)
 
