@@ -375,6 +375,7 @@ function remove () {
 
     ceciVideos.forEach(name => {
         name.content.style.display = "none"
+        name.content.style.transform = "translate3d(0,0,0)";
     })
 
     ecranFlottant.style.display = "none"
@@ -389,10 +390,12 @@ function remove () {
 
     theVideoProjects.forEach(name => {
         name.content.style.display = "none"
+        name.content.style.transform = "translate3d(0,0,0)";
     })
 
     chroniques.forEach(name => {
         name.content.style.display = "none"
+        name.content.style.transform = "translate3d(0,0,0)";
     })
 
     containerList.style.display = "none"
