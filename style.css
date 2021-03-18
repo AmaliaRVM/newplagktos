@@ -36,7 +36,7 @@ body{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    cursor: -webkit-grab; cursor: grab;
+    cursor: grab;
 }
 
 
@@ -138,7 +138,7 @@ header{
 /* About Plagktos */
 
 section{
-    position: fixed;
+    position: absolute;
     left: 28px;
     top: 150px;
     width: 422px;
@@ -264,8 +264,10 @@ section{
     display: none;
     width: 1000px;
     height: fit-content;
-    cursor: -webkit-grabbing; cursor: grabbing;
+    cursor: grabbing;
+    cursor: -moz-grabbing;
     position: absolute; 
+    z-index: 3;
 }
 
 .title-project{
@@ -684,18 +686,21 @@ video:hover{
         background-image: url('./assets/brand/bleu_2.jpg');
         color: #ffffff;
         font-size: var(--type-body-medium);
+        padding: 0;
     }
 
     .lc-french{
         position: relative;
         margin-top: 0;
         left: 0;
+        text-decoration: none;
     }
 
     .lc-english{
         position: relative;
         margin-top: 0;
         left: 0;
+        text-decoration: none;
     }
 
 
