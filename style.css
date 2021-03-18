@@ -153,12 +153,8 @@ section{
     text-align: left; 
 }
 
-.chroniques-container {
-    height: max-content;
-}
-
 .chroniques-content {
-    height: 520px;
+    height: 510px;
     padding-right: 20px;
 }
 
@@ -281,6 +277,10 @@ section{
 
 .main-container img {
     width: 700px;
+}
+
+.chroniques-container img{
+    width: 590px;
 }
 
 .main-container img:hover{
@@ -467,6 +467,10 @@ video:hover{
 
 #english{
     text-decoration: underline;
+}
+
+#netherland{
+    display: none;
 }
 
 .ld-container{
