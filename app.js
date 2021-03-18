@@ -645,6 +645,7 @@ function dragElements () {
         function dragStart (e) {
             
             if(e.type === 'mousedown') {
+                e.preventDefault()
                 /* initialX = e.touches[0].clientX - xOffset;
                 initialY = e.touches[0].clientY - yOffset;  */
                 initialX = e.clientX - xOffset;

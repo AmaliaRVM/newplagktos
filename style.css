@@ -77,7 +77,6 @@ sup{
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
 }
 
 /* Header */
@@ -143,6 +142,7 @@ section{
     left: 28px;
     top: 150px;
     width: 422px;
+    /* cursor: -webkit-grab; cursor: grab; */
     /* width: 370px; */
 }
 
@@ -267,7 +267,7 @@ section{
     display: none;
     width: 1000px;
     height: fit-content;
-    cursor: grabbing;
+    cursor: -webkit-grabbing; cursor: grabbing;
     position: absolute; 
 }
 
