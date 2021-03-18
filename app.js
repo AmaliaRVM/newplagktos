@@ -469,9 +469,12 @@ function mappingVideoProjects(element, myint){
         element.content.style.display = "block";
 
         const sound = element.content.getElementsByTagName('video')[0]
-        sound.style.display = "block";
+        
         sound.play()
 
+        sound.style.display = "block";
+
+        console.log(sound)
         const videoLoad = sound.readyState;
         console.log(videoLoad)
         
@@ -1095,6 +1098,8 @@ Array.from(allVideos).forEach(function(item){
     item.onended = function(){
         item.style.display = "none";
         item.load();
+        console.log('loop')
+        item.pause()
         
         Array.from(videoContainer).forEach(function(element){
             

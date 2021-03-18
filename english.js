@@ -1093,6 +1093,7 @@ Array.from(allVideos).forEach(function(item){
     item.onended = function(){
         item.style.display = "none";
         item.load();
+        item.pause()
         
         Array.from(videoContainer).forEach(function(element){
             
@@ -1128,7 +1129,7 @@ Array.from(allVideos).forEach(function(item){
 if (window.screen.width < 600) {
 
     alert('This website needs space to express itself. For an optimal user experience, do not hesitate to enlarge the window.')
-    
+
     /* Container ici et la */
     containerIciEtLa.addEventListener('click', function(){
 
