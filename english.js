@@ -428,6 +428,11 @@ function removeMedia () {
         name.content.style.transform = "translate3d(0,0,0)";
     })
 
+    chroniques.forEach(name => {
+        name.content.style.display = "none"
+        name.content.style.transform = "translate3d(0,0,0)";
+    })
+
     Array.from(allVideos).forEach(function(item){
         item.pause()
     })
@@ -1134,8 +1139,6 @@ Array.from(allVideos).forEach(function(item){
 
 
 if (window.screen.width < 600) {
-
-    alert('This website needs space to express itself. For an optimal user experience, do not hesitate to enlarge the window.')
 
     /* Container ici et la */
     containerIciEtLa.addEventListener('click', function(){
