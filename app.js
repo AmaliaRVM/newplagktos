@@ -453,10 +453,10 @@ function mappingProjects(element, myint){
         // random position numbers for the project container position
         
         positionRandom()
-        
+
+        element.content.style.left = null;
         element.content.style.top = vpos+"px"; 
         element.content.style.right = hpos+"px";
-       
 
     }) 
 
@@ -496,6 +496,7 @@ function mappingVideoProjects(element, myint){
         
         positionRandom()
 
+        element.content.style.left = null;
         element.content.style.top = vpos+"px"; 
         element.content.style.right = hpos+"px";
 
@@ -577,10 +578,9 @@ randomCeci.addEventListener('click', function(){
 
     positionRandom()
     
+    element.content.style.left = null;
     element.content.style.top = vpos+"px"; 
     element.content.style.right = hpos+"px";
-       
-    
     
 })
 
@@ -600,9 +600,10 @@ randomChroniques.addEventListener('click', function(){
 
     positionRandom()
     
+    element.content.style.left = null;
     element.content.style.top = vpos+"px"; 
     element.content.style.right = hpos+"px";
-       
+
 })
 
     //Display chroniques archives
@@ -654,6 +655,7 @@ Array.from(divMainContainer).forEach(function(item){
             document.onmouseup = closeDragElement;
             // call a function whenever the cursor moves:
             document.onmousemove = elementDrag;   
+            
         }
     
         function elementDrag(e) {

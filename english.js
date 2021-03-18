@@ -453,6 +453,7 @@ function mappingProjects(element, myint){
         
         positionRandom()
         
+        element.content.style.left = null;
         element.content.style.top = vpos+"px"; 
         element.content.style.right = hpos+"px";
        
@@ -491,6 +492,7 @@ function mappingVideoProjects(element, myint){
         
         positionRandom()
 
+        element.content.style.left = null;
         element.content.style.top = vpos+"px"; 
         element.content.style.right = hpos+"px";
 
@@ -570,6 +572,7 @@ randomCeci.addEventListener('click', function(){
 
     positionRandom()
     
+    element.content.style.left = null;
     element.content.style.top = vpos+"px"; 
     element.content.style.right = hpos+"px";
        
@@ -593,6 +596,7 @@ randomChroniques.addEventListener('click', function(){
 
     positionRandom()
     
+    element.content.style.left = null;
     element.content.style.top = vpos+"px"; 
     element.content.style.right = hpos+"px";
        
