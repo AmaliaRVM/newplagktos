@@ -414,6 +414,7 @@ function removeMedia () {
     newNames.forEach(name => {
         name.content.style.display = "none"
         name.content.style.transform = "translate3d(0,0,0)";
+        
     })
 
     ceciVideos.forEach(name => {
@@ -444,7 +445,7 @@ function mappingProjects(element, myint){
     const divProject = document.getElementById(element.name+myint);
     
     divProject.addEventListener('click', function(){
-
+        console.log('click')
         remove()
 
         element.content.style.display = "block";
@@ -474,13 +475,15 @@ function mappingVideoProjects(element, myint){
     const divProject = document.getElementById(element.name+myint);
     
     divProject.addEventListener('click', function(){
-
+        
+        
+        
         remove()
 
         element.content.style.display = "block";
 
         const sound = element.content.getElementsByTagName('video')[0]
-        
+        console.log(sound.style.transform)
         sound.play()
 
         sound.style.display = "block";
@@ -631,89 +634,52 @@ screenContainer.addEventListener('click', function(){
 
 //Make all -div class main-container- a draggable element
 
-function dragElements () {
 
-    Array.from(divMainContainer).forEach(function(item){
+Array.from(divMainContainer).forEach(function(item){
     
-        let active = false;
-        let currentX;
-        let currentY;
-        let initialX;
-        let initialY;
-        let xOffset = 0;
-        let yOffset = 0;
-    
-        /* item.addEventListener("touchstart", dragStart, false);
-        item.addEventListener("touchend", dragEnd, false);
-        item.addEventListener("touchmove", drag, false); */
-    
-        item.addEventListener("mousedown", dragStart, false);
-        item.addEventListener("mouseup", dragEnd, false);
-        item.addEventListener("mousemove", drag, false);
-    
-        //Initialiazing the Drag
-        
-        function dragStart (e) {
-            
-            if(e.type === 'mousedown') {
-                e.preventDefault()
-                /* initialX = e.touches[0].clientX - xOffset;
-                initialY = e.touches[0].clientY - yOffset;  */
-                initialX = e.clientX - xOffset;
-                initialY = e.clientY - yOffset; 
-                
-            /* } else {
-                initialX = e.clientX - xOffset;
-                initialY = e.clientY - yOffset; */
-            }
-            
-            active = true;
-    
-        }
-        
-        function drag(e) {
-    
-            if (active) {
-                
-                e.preventDefault();
-                
-                if (e.type === "mousemove") {
-                    /* currentX = e.touches[0].clientX - initialX;
-                    currentY = e.touches[0].clientY - initialY;  */
-                    currentX = e.clientX - initialX;
-                    currentY = e.clientY - initialY;
-                } /* else {
-                    currentX = e.clientX - initialX;
-                    currentY = e.clientY - initialY;
-                }
-     */
-                xOffset = currentX;
-                yOffset = currentY;
-        
-                setTranslate(currentX, currentY, item);
-                
-            }
-    
-        }
-    
-        function setTranslate(xPos, yPos, el) {
-    
-            el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-        }
-    
-        function dragEnd(e) {
-    
-            initialX = currentX;
-            initialY = currentY;
-    
-            active = false;
-        }
-    
-    })
+    dragElement(item)
 
-}
+    function dragElement (item) {
+        let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        if(item){
+            item.onmousedown = dragMouseDown;
+        }
 
-dragElements()
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // get the mouse cursor position at startup:
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            // call a function whenever the cursor moves:
+            document.onmousemove = elementDrag;   
+        }
+    
+        function elementDrag(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // calculate the new cursor position:
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            // set the element's new position:
+            item.style.top = (item.offsetTop - pos2) + "px";
+            item.style.left = (item.offsetLeft - pos1) + "px";
+        }
+    
+        function closeDragElement() {
+            /* stop moving when mouse button is released:*/
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
+
+    }
+
+})
+
+
 
 
 //Dark mode
