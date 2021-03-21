@@ -109,6 +109,12 @@ header{
     margin-bottom: 20px;
 }
 
+.archive-list-grid{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+}
+
 .projects-hover{
     color: #000000;
     display: block;
