@@ -148,6 +148,7 @@ let theProjects = [
 ]
 
 const forProjects = theProjects.length;
+let addNumberProjects = forProjects - 3;
 
 // The project videos words
 
@@ -171,6 +172,7 @@ let theVideoProjects = [
 ]
 
 const forVideoProjects = theVideoProjects.length;
+let addNumberVideo = forVideoProjects - 2;
 
 //Videos
 
@@ -255,7 +257,7 @@ logoName.addEventListener('click', function(){
 //Random project words - HTML Template and Loop
 
 let newNames = []
-for( i = forProjects; i > 1; i--) {
+for( i = forProjects; i > addNumberProjects; i--) {
     rn = Math.floor(Math.random() * i);
     newNames.push(theProjects.splice(rn,1)[0])
 }
@@ -321,7 +323,7 @@ archives.addEventListener('click', function(){
 //Random project video words - HTML Template and Loop
 
 newVideoProjects = []
-for( i = forVideoProjects; i > 2; i--) {
+for( i = forVideoProjects; i > addNumberVideo; i--) {
     rn = Math.floor(Math.random() * i);
     newVideoProjects.push(theVideoProjects.splice(rn,1)[0])
 }
@@ -621,6 +623,12 @@ chroniques.map(function(element){
 
         remove()
         element.content.style.display = "block";
+
+        positionRandom()
+    
+        element.content.style.left = null;
+        element.content.style.top = vpos+"px"; 
+        element.content.style.right = hpos+"px";
 
     })
 })
