@@ -147,6 +147,8 @@ let theProjects = [
 
 ]
 
+const forProjects = theProjects.length;
+
 // The project videos words
 
 let theVideoProjects = [
@@ -167,6 +169,8 @@ let theVideoProjects = [
         "content": fourthVideoProject,
     }
 ]
+
+const forVideoProjects = theVideoProjects.length;
 
 //Videos
 
@@ -198,6 +202,8 @@ const ceciVideos = [
 
 ]
 
+const forCeciVideos = ceciVideos.length;
+
 let thePlaces = [
     {
         "name": "Ear you are Festival",
@@ -225,14 +231,17 @@ let thePlaces = [
     }
 ]
 
+const forPlaces = thePlaces.length;
+
 const chroniques = [
     {
         "name": "free white and 21",
         "content": firstChronique
 
     }
-
 ]
+
+const forChroniques = chroniques.length;
 
 
 //Logo Name
@@ -246,7 +255,7 @@ logoName.addEventListener('click', function(){
 //Random project words - HTML Template and Loop
 
 let newNames = []
-for( i = 4; i > 1; i--) {
+for( i = forProjects; i > 1; i--) {
     rn = Math.floor(Math.random() * i);
     newNames.push(theProjects.splice(rn,1)[0])
 }
@@ -312,7 +321,7 @@ archives.addEventListener('click', function(){
 //Random project video words - HTML Template and Loop
 
 newVideoProjects = []
-for( i = 4; i > 2; i--) {
+for( i = forVideoProjects; i > 2; i--) {
     rn = Math.floor(Math.random() * i);
     newVideoProjects.push(theVideoProjects.splice(rn,1)[0])
 }
@@ -332,7 +341,7 @@ vprojectTwo.innerHTML = `
 //Random ici, ici Loop and HTML Template words
 
 let newPlaces = []
-for( i = 6; i > 4; i--) {
+for( i = forPlaces; i > 4; i--) {
     rn = Math.floor(Math.random() * i);
     newPlaces.push(thePlaces.splice(rn,1)[0])
 }
@@ -551,7 +560,7 @@ containerLa.addEventListener('click', function(){
 
 randomCeci.addEventListener('click', function(){
 
-    index = Math.floor(Math.random() * 6);
+    index = Math.floor(Math.random() * forCeciVideos);
 
     remove()
 
@@ -584,7 +593,7 @@ randomCeci.addEventListener('click', function(){
 
 randomChroniques.addEventListener('click', function(){
 
-    index = Math.floor(Math.random() * 1);
+    index = Math.floor(Math.random() * forChroniques);
 
     remove()
 
