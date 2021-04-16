@@ -394,6 +394,7 @@ function remove () {
     })
 
     ecranFlottant.style.display = "none"
+    ecranFlottant.style.transform = "translate3d(0,0,0)";
 
     newPlaces.forEach(name => {
         name.content.style.display = "none"
@@ -438,6 +439,7 @@ function removeMedia () {
     })
 
     ecranFlottant.style.display = "none"
+    ecranFlottant.style.transform = "translate3d(0,0,0)";
 
     theVideoProjects.forEach(name => {
         name.content.style.display = "none"
@@ -658,7 +660,7 @@ screenContainer.addEventListener('click', function(){
 
 
 Array.from(divMainContainer).forEach(function(item){
-    
+    console.log(item);
     dragElement(item)
 
     function dragElement (item) {
