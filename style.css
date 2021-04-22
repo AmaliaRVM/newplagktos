@@ -37,6 +37,7 @@ body{
     padding: 0;
     overflow: hidden;
     cursor: grab;
+    line-height: 1.24;
 }
 
 
@@ -148,7 +149,8 @@ section{
     position: absolute;
     left: 28px;
     top: 150px;
-    width: 422px;
+    width: 362px;
+    /* width: 422px; */
     /* cursor: -webkit-grab; cursor: grab; */
     /* width: 370px; */
 }
@@ -158,6 +160,11 @@ section{
     margin-bottom: 20px;
     padding: 0;
     text-align: left; 
+}
+
+#ou-menu{
+    text-decoration: none;
+    color: #000000;
 }
 
 .chroniques-content {
@@ -212,7 +219,7 @@ section{
     font-size: var(--type-body-regular);
 }
 #second-word{
-    font-size: 0;
+    /* font-size: 0; */
     text-decoration: none;
 }
 #second-word span{
@@ -388,10 +395,20 @@ video:hover{
     padding: 2px;
 }
 
+#news-link{
+    color: var(--link-main-color);
+}
+
+#facebook-link{
+    color: var(--link-main-color);
+}
+
 .lc-french{
     position: absolute;
-    margin-top: -26px;
+    /* margin-top: -26px; */
+    margin-top: -24px;
     left: 144px;
+    width: 420px;
 }
 
 .lc-english{
@@ -525,7 +542,7 @@ video:hover{
         width: 95%;
         margin: 0 auto;
         padding: 5px;
-        /* overflow: scroll; */
+        overflow: scroll;
         cursor: grab;
         font-size: var(--type-body-medium);
 
@@ -578,7 +595,7 @@ video:hover{
     }
 
     h1{
-        padding-left: 22px; 
+        padding-left: 10px; 
     }
 
     .about-plagktos{
@@ -777,6 +794,9 @@ video:hover{
     #ecran-flottant{
         position: relative;
         margin: 80px auto 0 auto;
+        left: 0;
+        right: 0;
+        top: 10px;
     }
 
     .place{
