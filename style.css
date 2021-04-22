@@ -539,7 +539,7 @@ video:hover{
 
     body{
         background-image: url('./assets/brand/bleu_2.jpg');
-        width: 95%;
+        width: 100%;
         margin: 0 auto;
         padding: 5px;
         overflow: scroll;
@@ -589,17 +589,21 @@ video:hover{
 
     header{
         width: 80%;
-        display: flex;
-        justify-content: space-between;
+        /* display: flex;
+        justify-content: space-between; */
         margin: 0px;
     }
 
     h1{
-        padding-left: 10px; 
+        padding-left: 22px;
     }
 
     .about-plagktos{
         width: 95%;
+    }
+
+    .place{
+        padding-left: 25px;
     }
 
     .place-container{
@@ -709,6 +713,14 @@ video:hover{
         color: #ffffff;
         font-size: var(--type-body-medium);
         padding: 0;
+    }
+
+    #news-link{
+        color: #ffffff;
+    }
+    
+    #facebook-link{
+        color: #ffffff;
     }
 
     .lc-french{
