@@ -579,7 +579,7 @@ video:hover{
         padding-top: 5%;
         line-height: 130%; */
 
-        width: 330px;
+        width: 328px;/* from 330 to 328 */
         position: fixed;
         left: 28px;
         top: 80px;
