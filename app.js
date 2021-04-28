@@ -254,7 +254,7 @@ const forChroniques = chroniques.length;
 
 logoName.addEventListener('click', function(){
     
-    window.location.reload(); 
+    location.reload(); 
 
 })
 
