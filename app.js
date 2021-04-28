@@ -919,7 +919,7 @@ firstVideoProject.innerHTML = `
 `
 
 secondVideoProject.innerHTML = `
-    <video src=${allMedia.project_videos.second_vp} type="video/mp4" preload="auto" autoplay="false" ></video>
+    <video src=${allMedia.project_videos.second_vp} type="video/mp4" preload="auto" autoplay="true" ></video>
     <p class="copyright-video">Salomé - Téo Hernandez <i>1976</i></p>
 `
 thirdVideoProject.innerHTML = `
@@ -927,7 +927,7 @@ thirdVideoProject.innerHTML = `
     <p class="copyright-video">Brouillard Passage 14 - Alexandre Larose <i>2014</i></p>
 `
 fourthVideoProject.innerHTML = `
-    <video src=${allMedia.project_videos.fourth_vp} type="video/mp4" preload="auto" autoplay="false" ></video>
+    <video src=${allMedia.project_videos.fourth_vp} type="video/mp4" preload="auto" autoplay="true" ></video>
     <p class="copyright-video">Born in Flames - Lizzie Borden <i>1983</i></p>
 `
 
@@ -1100,6 +1100,7 @@ Array.from(allVideos).forEach(function(item){
 
     item.onended = function(){
         item.style.display = "none";
+        console.log("loading")
         item.load();
         console.log('loop')
         item.pause()
