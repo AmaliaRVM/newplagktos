@@ -356,16 +356,20 @@ section{
 
 /* Floatting Screen */
 
-#ecran-flottant{
+/* #ecran-flottant{
     top:90px;
     right:340px;
-}
+} */
 
 /* Videos */
 
-video{
+.video-container video{
     width: 700px;
 }
+
+/* video{
+    width: 700px;
+} */
 
 video:hover{
     border-style: solid;

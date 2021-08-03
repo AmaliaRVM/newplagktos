@@ -649,6 +649,12 @@ chroniques.map(function(element){
 screenContainer.addEventListener('click', function(){
     remove()
     ecranFlottant.style.display = "block";
+
+    positionRandom()
+    
+    ecranFlottant.style.left = null;
+    ecranFlottant.style.top = vpos+"px"; 
+    ecranFlottant.style.right = hpos+"px";
     
     if (window.screen.width < 1025){
         goBack.style.display = "block";
@@ -914,20 +920,20 @@ fourthProject.innerHTML = `
 //HTML Template Projects Videos
 
 firstVideoProject.innerHTML = `
-    <video src=${allMedia.project_videos.first_vp} type="video/mp4" preload="auto" autoplay="false" ></video>
+    <video src=${allMedia.project_videos.first_vp} width="700" type="video/mp4" preload="auto"></video>
     <p class="copyright-video">Asparagus - Suzan Pitt <i>1979</i></p>
 `
 
 secondVideoProject.innerHTML = `
-    <video src=${allMedia.project_videos.second_vp} type="video/mp4" preload="auto"></video>
+    <video src=${allMedia.project_videos.second_vp} width="700" type="video/mp4" preload="auto"></video>
     <p class="copyright-video">Salomé - Téo Hernandez <i>1976</i></p>
 `
 thirdVideoProject.innerHTML = `
-    <video src=${allMedia.project_videos.third_vp} type="video/mp4" preload="auto" autoplay="false" ></video>
+    <video src=${allMedia.project_videos.third_vp} width="700" type="video/mp4" preload="auto"></video>
     <p class="copyright-video">Brouillard Passage 14 - Alexandre Larose <i>2014</i></p>
 `
 fourthVideoProject.innerHTML = `
-    <video src=${allMedia.project_videos.fourth_vp} type="video/mp4" preload="auto"></video>
+    <video src=${allMedia.project_videos.fourth_vp} width="700" type="video/mp4" preload="auto"></video>
     <p class="copyright-video">Born in Flames - Lizzie Borden <i>1983</i></p>
 `
 
@@ -935,28 +941,28 @@ fourthVideoProject.innerHTML = `
 //HTML Template for Ceci Videos
 
 firstVideo.innerHTML = `
-    <video src=${allMedia.ceci_videos.first_v} type="video/mp4" preload="auto" autoplay="false" ></video>
+    <video src=${allMedia.ceci_videos.first_v} type="video/mp4" preload="auto"></video>
     <p class="copyright-video">Breakaway - Bruce Conner <i>1966</i></p>
 `
 
 secondVideo.innerHTML = `
-    <video src=${allMedia.ceci_videos.second_v} type="video/mp4" preload="auto" autoplay="false" ></video>
+    <video src=${allMedia.ceci_videos.second_v} type="video/mp4" preload="auto"></video>
     <p class="copyright-video">Gutrug N°1 - Werner Nekes <i>1894</i></p>
 `
 thirdVideo.innerHTML = `
-    <video src=${allMedia.ceci_videos.third_v} type="video/mp4" preload="auto" autoplay="false" ></video>
+    <video src=${allMedia.ceci_videos.third_v} type="video/mp4" preload="auto"></video>
     <p class="copyright-video">Ink in Milk - Gernot Wieland <i>2018</i></p>
 `
 fourthVideo.innerHTML = `
-    <video src=${allMedia.ceci_videos.fourth_v} type="video/mp4" preload="auto" autoplay="false" ></video>
+    <video src=${allMedia.ceci_videos.fourth_v} type="video/mp4" preload="auto"></video>
     <p class="copyright-video">Kika opowiesci o czlowieku - Bogdan Dziworski <i>1983</i></p>
 `
 fifthVideo.innerHTML = `
-    <video src=${allMedia.ceci_videos.fifth_v} type="video/mp4" preload="auto" autoplay="false" ></video>
+    <video src=${allMedia.ceci_videos.fifth_v} type="video/mp4" preload="auto"></video>
     <p class="copyright-video">Ofrenda - Claudio Caldini <i>1978</i></p>
 `
 sixVideo.innerHTML = `
-    <video src=${allMedia.ceci_videos.six_v} type="video/mp4" preload="auto" autoplay="false" ></video>
+    <video src=${allMedia.ceci_videos.six_v} type="video/mp4" preload="auto"></video>
     <p class="copyright-video">The Girl Chewing Gum - John Smith <i>1976</i></p>
 `
 
