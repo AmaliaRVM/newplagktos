@@ -539,7 +539,108 @@ video:hover{
 
 /* Responsive Style */
 
-@media screen and (max-width: 800px) {
+@media screen and (max-height: 800px){
+
+    /* style only for the height */
+
+    body{
+        font-size: var(--type-body-medium);
+    }
+
+    /* Archives */
+
+    #archives{
+        font-size: var(--type-body-medium);
+    }
+
+    #archive-list-projects span{
+        font-size: var(--type-body-medium);
+    }
+
+    #archive-list-vprojects span{
+        font-size: var(--type-body-medium);
+    }
+
+    #archive-list-chroniques span{
+        font-size: var(--type-body-medium);
+    }
+
+    /* Section */
+
+    section{
+        width: 289px;
+    }
+
+    .about-plagktos p{
+        font-size: var(--type-body-medium);
+    }
+    
+    .about-plagktos span{
+        font-size: var(--type-body-medium);
+    }
+
+    #first-word span{
+        font-size: var(--type-body-medium);
+    }
+
+    #second-word span{
+        font-size: var(--type-body-medium);
+    }
+
+    #third-word span{
+        font-size: var(--type-body-medium);
+    }
+
+    #ici-container-one span{
+        font-size: var(--type-body-medium);
+    }
+
+    #ici-container-two span{
+        font-size: var(--type-body-medium);
+    }
+
+    #vproject-one span{
+        font-size: var(--type-body-medium);
+    }
+
+    #vproject-two span{
+        font-size: var(--type-body-medium);
+    }
+
+    #vproject-third span{
+        font-size: var(--type-body-medium);
+    }
+
+        /* Contact */
+
+    .cela{
+        margin-top: -18px;
+        left: 176px;
+    }
+
+    #mail-contact{
+        font-size: var(--type-body-medium);
+    }
+
+    .link-contact {
+        margin-top: -18px;
+        left: 117px;
+    }
+
+        /* Copywrite */
+
+    #copyright{
+        font-size: var(--type-body-medium);
+    }
+
+    /* Language */
+    .language{
+        font-size: 14px;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
 
     body{
         background-image: url('./assets/brand/bleu_2.jpg');
